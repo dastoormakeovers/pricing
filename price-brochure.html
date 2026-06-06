@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dastoor Makeovers — Price List</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Raleway:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0E0C0C;
+            --dark: #181414;
+            --card: #201C1C;
+            --rg: #C9965A;
+            --rg-lt: #E8C49A;
+            --rg-dim: rgba(201, 150, 90, 0.18);
+            --rg-line: rgba(201, 150, 90, 0.35);
+            --cream: #F5EDE0;
+            --muted: rgba(245, 237, 224, 0.45);
+            --soft: rgba(245, 237, 224, 0.75);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--cream);
+            font-family: 'Raleway', sans-serif;
+            font-size: 12.5px;
+            font-weight: 300;
+            line-height: 1.65;
+        }
+
+        /* ── PAGE SHELL ── */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto 2mm;
+            background: var(--dark);
+            position: relative;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+            margin-bottom: 0;
+        }
+
+        /* ── DECORATIVE CORNER MARKS ── */
+        .corner {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: var(--rg);
+            border-style: solid;
+            opacity: 0.55;
+        }
+
+        .corner.tl {
+            top: 10mm;
+            left: 10mm;
+            border-width: 1px 0 0 1px;
+        }
+
+        .corner.tr {
+            top: 10mm;
+            right: 10mm;
+            border-width: 1px 1px 0 0;
+        }
+
+        .corner.bl {
+            bottom: 10mm;
+            left: 10mm;
+            border-width: 0 0 1px 1px;
+        }
+
+        .corner.br {
+            bottom: 10mm;
+            right: 10mm;
+            border-width: 0 1px 1px 0;
+        }
+
+        /* ── COVER ── */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18mm 16mm;
+            min-height: 297mm;
+            text-align: center;
+            position: relative;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 50% 30%, rgba(201, 150, 90, 0.09) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 30% at 80% 80%, rgba(201, 150, 90, 0.06) 0%, transparent 60%);
+        }
+
+        /* Logo placeholder */
+        .logo-box {
+            width: auto;
+            max-width: 80%;
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-placeholder {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--rg);
+            opacity: 0.7;
+            text-align: center;
+            line-height: 1.4;
+            padding: 8px;
+        }
+
+        .cover-line {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rg), transparent);
+            margin: 14px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-tag {
+            font-size: 9.5px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rg);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px;
+            font-weight: 700;
+            line-height: 1.0;
+            letter-spacing: 2px;
+            color: var(--cream);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover h1 em {
+            font-style: italic;
+            color: var(--rg-lt);
+            font-weight: 400;
+        }
+
+        .cover-descriptor {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            border: 1px solid var(--rg-line);
+            border-radius: 40px;
+            padding: 5px 14px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--rg-lt);
+            font-weight: 400;
+        }
+
+        .cover-branches {
+            margin-top: 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .branch-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rg);
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .branches {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .branch {
+            text-align: center;
+            font-size: 11.5px;
+            color: var(--soft);
+            font-weight: 300;
+        }
+
+        .branch strong {
+            display: block;
+            font-weight: 500;
+            font-size: 12px;
+            color: var(--cream);
+            margin-bottom: 2px;
+        }
+
+        .sep-diamond {
+            color: var(--rg);
+            font-size: 16px;
+            align-self: center;
+            opacity: 0.5;
+        }
+
+        /* ── INNER PAGES ── */
+        .inner {
+            padding: 14mm 14mm 18mm;
+        }
+
+        /* ── PAGE HEADER ── */
+        .pg-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--rg-line);
+            margin-bottom: 18px;
+        }
+
+        .pg-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--rg-lt);
+            font-style: italic;
+        }
+
+        .pg-section-name {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ── SECTION TITLE ── */
+        .sec-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--rg-lt);
+            margin-bottom: 4px;
+            line-height: 1.15;
+        }
+
+        .sec-sub {
+            font-size: 9.5px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .sec-rule {
+            height: 1px;
+            background: linear-gradient(90deg, var(--rg), transparent);
+            margin-bottom: 16px;
+        }
+
+        /* ── CATEGORY BLOCK ── */
+        .cat-block {
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .cat-name {
+            font-size: 9.5px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--rg);
+            font-weight: 500;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(201, 150, 90, 0.15);
+        }
+
+        /* ── PRICE ROW ── */
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 4.5px 0;
+            border-bottom: 1px solid rgba(245, 237, 224, 0.05);
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-name {
+            font-size: 12px;
+            color: var(--soft);
+            font-weight: 300;
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        .price-dots {
+            flex: 1;
+            border-bottom: 1px dotted rgba(201, 150, 90, 0.2);
+            height: 1px;
+            align-self: center;
+            min-width: 20px;
+        }
+
+        .price-val {
+            font-size: 12px;
+            color: var(--cream);
+            font-weight: 400;
+            white-space: nowrap;
+            padding-left: 10px;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .price-val .rg {
+            color: var(--rg-lt);
+            font-weight: 500;
+        }
+
+        /* ── SINGLE COLUMN LAYOUT ── */
+        .single-col {
+            max-width: 140mm;
+            margin: 0 auto;
+        }
+
+        /* ── TWO COLUMN LAYOUT ── */
+        .two-col {
+            column-count: 2;
+            column-gap: 24px;
+        }
+
+        /* ── THREE COLUMN FOR BRIDAL ── */
+        .bridal-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .bridal-card {
+            background: var(--card);
+            border: 1px solid rgba(201, 150, 90, 0.2);
+            border-radius: 6px;
+            padding: 10px 10px 12px;
+            text-align: center;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .bridal-card .occasion {
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rg);
+            margin-bottom: 8px;
+        }
+
+        .bridal-tier {
+            margin-bottom: 5px;
+        }
+
+        .bridal-tier .tier-name {
+            font-size: 9.5px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .bridal-tier .tier-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        /* ── OFFER BANNER ── */
+        .offer-banner {
+            background: var(--card);
+            border: 1px solid var(--rg-line);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-top: 16px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .offer-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--rg-dim);
+            border: 1px solid var(--rg-line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .offer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-style: italic;
+            color: var(--rg-lt);
+            margin-bottom: 3px;
+        }
+
+        .offer-desc {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .note-pill {
+            font-size: 10px;
+            color: var(--rg);
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ── PAGE FOOTER ── */
+        .pg-footer {
+            position: absolute;
+            bottom: 9mm;
+            left: 18mm;
+            right: 18mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9.5px;
+            color: var(--muted);
+            border-top: 1px solid rgba(201, 150, 90, 0.15);
+            padding-top: 6px;
+        }
+
+        .pg-footer .brand {
+            color: var(--rg);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ── SPACING HELPERS ── */
+        .mt8 {
+            margin-top: 8px;
+        }
+
+        .mt12 {
+            margin-top: 12px;
+        }
+
+        .mt16 {
+            margin-top: 16px;
+        }
+
+        @media print {
+            body {
+                background: #0E0C0C;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                margin: 0;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ════════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="cover">
+            <!-- Logo Placeholder — replace src with your logo PNG -->
+            <div class="logo-box" id="logo-container">
+                <img id="logo-img" src="dastoor-logo.png" alt="Dastoor Makeovers Logo"
+                    style="display:block; height:70%; object-fit:contain;">
+                <span class="logo-placeholder" id="logo-placeholder" style="display:none;">Your<br>Logo<br>Here</span>
+            </div>
+
+            <div class="cover-tag">Premium Women's Salon &amp; Bridal Studio</div>
+            <div class="cover-line"></div>
+            <div class="cover-descriptor">One Stop Women's Beauty Solution</div>
+            <!-- <div class="cover-line"></div> -->
+
+            <div class="cover-badges">
+                <div class="badge">Hair Care</div>
+                <div class="badge">Skin & Facials</div>
+                <div class="badge">Bridal Studio</div>
+                <div class="badge">Nail Art</div>
+                <div class="badge">Mehndi</div>
+                <div class="badge">Makeup</div>
+            </div>
+
+            <div class="cover-branches">
+                <div class="branch-tag">Our Branches · Jaipur</div>
+                <div class="branches">
+                    <div class="branch">
+                        <strong>Branch 1</strong>
+                        Chitrakoot, Jaipur
+                    </div>
+                    <div class="sep-diamond">◆</div>
+                    <div class="branch">
+                        <strong>Branch 2</strong>
+                        Gandhi Path West, Jaipur
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════
+     PAGE 2 — THREADING · WAXING
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Threading · Waxing</span>
+            </div>
+
+            <div class="single-col">
+                <div class="sec-title">Threading &amp; Waxing</div>
+                <div class="sec-sub">Precision · Gentle · Lasting</div>
+                <div class="sec-rule"></div>
+                <div class="two-col">
+
+
+                    <div class="cat-block">
+                        <div class="cat-name">Thread Work</div>
+                        <div class="price-row"><span class="price-name">Eyebrows</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹50</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Upper Lip</span><span
+                                class="price-dots"></span><span class="price-val">₹20</span></div>
+                        <div class="price-row"><span class="price-name">Lower Lip</span><span
+                                class="price-dots"></span><span class="price-val">₹20</span></div>
+                        <div class="price-row"><span class="price-name">Forehead</span><span
+                                class="price-dots"></span><span class="price-val">₹20</span></div>
+                        <div class="price-row"><span class="price-name">Chin</span><span class="price-dots"></span><span
+                                class="price-val">₹20</span></div>
+                        <div class="price-row"><span class="price-name">Side Blocks</span><span
+                                class="price-dots"></span><span class="price-val">₹50</span></div>
+                        <div class="price-row"><span class="price-name">Full Face</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹200
+                                </span></span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Facial Wax (Brazilian)</div>
+                        <div class="price-row"><span class="price-name">Eyebrows</span><span
+                                class="price-dots"></span><span class="price-val">₹100</span></div>
+                        <div class="price-row"><span class="price-name">Upper Lip</span><span
+                                class="price-dots"></span><span class="price-val">₹50</span></div>
+                        <div class="price-row"><span class="price-name">Forehead</span><span
+                                class="price-dots"></span><span class="price-val">₹50</span></div>
+                        <div class="price-row"><span class="price-name">Side Blocks</span><span
+                                class="price-dots"></span><span class="price-val">₹100</span></div>
+                        <div class="price-row"><span class="price-name">Full Face</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">
+                                    ₹400</span></span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Waxing — Honey / Aloe-Choco</div>
+                        <div class="price-row"><span class="price-name">Underarms</span><span
+                                class="price-dots"></span><span class="price-val">₹70 – ₹100</span></div>
+                        <div class="price-row"><span class="price-name">Full Arms</span><span
+                                class="price-dots"></span><span class="price-val">₹200 – ₹250</span></div>
+                        <div class="price-row"><span class="price-name">Half Leg</span><span
+                                class="price-dots"></span><span class="price-val">₹200 – ₹250</span></div>
+                        <div class="price-row"><span class="price-name">Full Leg</span><span
+                                class="price-dots"></span><span class="price-val">₹400 – ₹450</span></div>
+                        <div class="price-row"><span class="price-name">Tummy</span><span
+                                class="price-dots"></span><span class="price-val">₹400 – ₹499</span></div>
+                        <div class="price-row"><span class="price-name">Back</span><span class="price-dots"></span><span
+                                class="price-val">₹499 – ₹599</span></div>
+                        <div class="price-row"><span class="price-name">Full Body</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹999 –
+                                    ₹1,199</span></span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Rica Wax — Liposoluble / Roll-On</div>
+                        <div class="price-row"><span class="price-name">Underarms</span><span
+                                class="price-dots"></span><span class="price-val">₹120 – ₹150</span></div>
+                        <div class="price-row"><span class="price-name">Full Arms</span><span
+                                class="price-dots"></span><span class="price-val">₹400 – ₹499</span></div>
+                        <div class="price-row"><span class="price-name">Half Leg</span><span
+                                class="price-dots"></span><span class="price-val">₹400 – ₹499</span></div>
+                        <div class="price-row"><span class="price-name">Full Leg</span><span
+                                class="price-dots"></span><span class="price-val">₹799 – ₹999</span></div>
+                        <div class="price-row"><span class="price-name">Tummy</span><span
+                                class="price-dots"></span><span class="price-val">₹599 – ₹699</span></div>
+                        <div class="price-row"><span class="price-name">Back</span><span class="price-dots"></span><span
+                                class="price-val">₹699 – ₹799</span></div>
+                        <div class="price-row"><span class="price-name">Bikini</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹1,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Full Body</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹1,999 –
+                                    ₹2,499</span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 2</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════
+     PAGE 3 — HAIR CARE · STYLING
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Hair Care · Styling</span>
+            </div>
+
+            <div class="single-col">
+                <div class="sec-title">Hair Care &amp; Styling</div>
+                <div class="sec-sub">Expert Cuts · Colour · Treatments</div>
+                <div class="sec-rule"></div>
+                <div class="two-col">
+
+
+                    <div class="cat-block">
+                        <div class="cat-name">Basic Services</div>
+                        <div class="price-row"><span class="price-name">Head Wash — Basic</span><span
+                                class="price-dots"></span><span class="price-val">₹150</span></div>
+                        <div class="price-row"><span class="price-name">Head Wash — Premium</span><span
+                                class="price-dots"></span><span class="price-val">₹250</span></div>
+                        <div class="price-row"><span class="price-name">Blow Dryer</span><span
+                                class="price-dots"></span><span class="price-val">₹250</span></div>
+                        <div class="price-row"><span class="price-name">Straight Dryer</span><span
+                                class="price-dots"></span><span class="price-val">₹200</span></div>
+                        <div class="price-row"><span class="price-name">Normal Dryer</span><span
+                                class="price-dots"></span><span class="price-val">₹150</span></div>
+                        <div class="price-row"><span class="price-name">Head Massage</span><span
+                                class="price-dots"></span><span class="price-val">₹350</span></div>
+                        <div class="price-row"><span class="price-name">Head Massage + Steam</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Only Steam</span><span
+                                class="price-dots"></span><span class="price-val">₹150</span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Haircut</div>
+                        <div class="price-row"><span class="price-name">Trimming / Basic Straight</span><span
+                                class="price-dots"></span><span class="price-val">₹150</span></div>
+                        <div class="price-row"><span class="price-name">Classic Cut (U / Step / Layer)</span><span
+                                class="price-dots"></span><span class="price-val">₹350</span></div>
+                        <div class="price-row"><span class="price-name">Advanced (Feather / Bob / Long)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Split End Removal</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Hair Spa &amp; Treatments</div>
+                        <div class="price-row"><span class="price-name">Hair Spa</span><span
+                                class="price-dots"></span><span class="price-val">₹699 - 1,499</span></div>
+                        <div class="price-row"><span class="price-name">Hair Spa (L'Oréal)</span><span
+                                class="price-dots"></span><span class="price-val">₹1,199</span></div>
+                        <div class="price-row"><span class="price-name">Hair Spa Treatment</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499 – ₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Rituals</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,499+</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Hair Colouring</div>
+                        <div class="price-row"><span class="price-name">Root Touch-Up (Matrix)</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Root Touch-Up (L'Oreal)</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Global Colour (Full Length)</span><span
+                                class="price-dots"></span><span class="price-val">₹1,999 – ₹4,999</span></div>
+                        <div class="price-row"><span class="price-name">Balayage</span><span
+                                class="price-dots"></span><span class="price-val">₹3,499*</span></div>
+                        <div class="price-row"><span class="price-name">French Balayage / Ombre</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999*</span></div>
+                        <div class="price-row"><span class="price-name">Fashion Colour</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999*</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Hair Treatments</div>
+                        <div class="price-row"><span class="price-name">Straightening / Rebonding</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999*</span></div>
+                        <div class="price-row"><span class="price-name">Botox / Keratin</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999*</span></div>
+                        <div class="price-row"><span class="price-name">Botoplex / Nanoplastia</span><span
+                                class="price-dots"></span><span class="price-val">₹6,999*</span></div>
+                        <div class="price-row"><span class="price-name">Olaplex</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,999*</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Thermal Hairstyles</div>
+                        <div class="price-row"><span class="price-name">Straightening / Curls / Crimping</span><span
+                                class="price-dots"></span><span class="price-val">₹499 each*</span></div>
+                        <span class="note-pill">* Prices vary by hair length, density &amp; condition</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 3</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════
+     PAGE 4 — SKIN CARE · FACIALS
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Skin Care · Facials</span>
+            </div>
+
+            <div class="single-col">
+                <div class="sec-title">Skin Care &amp; Treatments</div>
+                <div class="sec-sub">Glow · Rejuvenate · Transform</div>
+                <div class="sec-rule"></div>
+                <div class="two-col">
+
+
+                    <div class="cat-block">
+                        <div class="cat-name">Cleanups</div>
+                        <div class="price-row"><span class="price-name">Basic / Classic Cleanup</span><span
+                                class="price-dots"></span><span class="price-val">₹400</span></div>
+                        <div class="price-row"><span class="price-name">De-tan Cleanup</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Aroma Cleanup</span><span
+                                class="price-dots"></span><span class="price-val">₹799</span></div>
+                        <div class="price-row"><span class="price-name">Hydra Cleanup</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">O3+ Cleanup</span><span
+                                class="price-dots"></span><span class="price-val">₹1,199</span></div>
+                        <div class="price-row"><span class="price-name">Gluta Cleanup</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Medi Cleanup</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹1,499</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Facials</div>
+                        <div class="price-row"><span class="price-name">Classic Facial</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Anti-tan / Brightening</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Anti-wrinkle / Pigmentation</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Aroma Facial</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">O3+ Facial</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">O3+ Bridal Facial (5 Steps)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Hydra Facial</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Customised / Kenpeki / Brilliar</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499 – ₹4,999</span></div>
+                        <div class="price-row"><span class="price-name">Medi / Derma / Advance Facial</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹3,999+</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Advanced Skin Treatments</div>
+                        <div class="price-row"><span class="price-name">Skin Soothing (Sensitive)</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999</span></div>
+                        <div class="price-row"><span class="price-name">Skin Purifying Treatment</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999</span></div>
+                        <div class="price-row"><span class="price-name">Skin Tightening Treatment</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999</span></div>
+                        <div class="price-row"><span class="price-name">Skin Rejuvenation</span><span
+                                class="price-dots"></span><span class="price-val">₹3,999</span></div>
+                        <div class="price-row"><span class="price-name">Skin Whitening / Melasma</span><span
+                                class="price-dots"></span><span class="price-val">₹4,999</span></div>
+                        <div class="price-row"><span class="price-name">BB Glow Treatment</span><span
+                                class="price-dots"></span><span class="price-val">₹4,999</span></div>
+                        <div class="price-row"><span class="price-name">Carbon Laser Facial</span><span
+                                class="price-dots"></span><span class="price-val">₹4,999</span></div>
+                        <div class="price-row"><span class="price-name">Underarms / Bikini Whitening (3
+                                sessions)</span><span class="price-dots"></span><span class="price-val"><span
+                                    class="rg">₹4,999</span></span></div>
+                    </div>
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Bleach &amp; D-Tan</div>
+                        <div class="price-row"><span class="price-name">Raga D-tan Face</span><span
+                                class="price-dots"></span><span class="price-val">₹350</span></div>
+                        <div class="price-row"><span class="price-name">Herbal Face Bleach</span><span
+                                class="price-dots"></span><span class="price-val">₹350</span></div>
+                        <div class="price-row"><span class="price-name">O3+ D-tan Face</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Oxy Face Bleach</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Body Bleach</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,499</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 4</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════
+     PAGE 5 — MANI-PEDI · LASHES
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Mani-Pedi · Lashes</span>
+            </div>
+
+            <div class="single-col">
+                <div class="sec-title">Relaxing Sessions</div>
+                <div class="sec-sub">Mani · Pedi · Nail Care</div>
+                <div class="sec-rule"></div>
+                <div class="two-col">
+
+
+                    <div class="cat-block">
+                        <div class="cat-name">Manicure</div>
+                        <div class="price-row"><span class="price-name">Classic Manicure</span><span
+                                class="price-dots"></span><span class="price-val">₹400</span></div>
+                        <div class="price-row"><span class="price-name">Luxury Manicure</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Ultra Luxury Manicure</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹999</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Pedicure</div>
+                        <div class="price-row"><span class="price-name">Classic Pedicure</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Luxury Pedicure</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Ultra Luxury Pedicure</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹1,499</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt16">
+                        <div class="cat-name">Nail Art &amp; Extensions (Both Hands)</div>
+                        <div class="price-row"><span class="price-name">Cut &amp; Shape</span><span
+                                class="price-dots"></span><span class="price-val">₹150</span></div>
+                        <div class="price-row"><span class="price-name">Gel Paint Removal</span><span
+                                class="price-dots"></span><span class="price-val">₹300</span></div>
+                        <div class="price-row"><span class="price-name">Extension Removal</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Soft Gel Polish Overlay</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Temporary Press-on Nails</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Acrylic Extension + Gel Polish</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹1,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Gel Extension + Gel Paint</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹1,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Toes Gel Paint</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Bridal Combo + Toes Nail</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹3,499</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt16">
+                        <div class="cat-name">Eyelash Extensions</div>
+                        <div class="price-row"><span class="price-name">Lash Lifting</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Lash Removal</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Lash Refill</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Classic Lash Extensions</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Hybrid Lash Extension</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Volume Lash Extension</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹3,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Bridal Lash (Incl. 1 Free Refill)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 5</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════
+     PAGE 6 — MAKEUP · HAIR DO
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Makeup · Hair Do</span>
+            </div>
+
+            <div class="single-col">
+                <div class="sec-title">Makeup &amp; Hair Do</div>
+                <div class="sec-sub">Glam · Artistry · Transformation</div>
+                <div class="sec-rule"></div>
+                <div class="two-col">
+
+
+                    <div class="cat-block">
+                        <div class="cat-name">Individual Makeup</div>
+                        <div class="price-row"><span class="price-name">Lite / Basic Makeup</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Only Eye Makeup</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Eye Makeup + Lashes + Lenses</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">HD Party Makeup (MAC + Lashes)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Ultra HD Party Makeup</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹3,499</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Combo Party Makeup</div>
+                        <div class="price-row"><span class="price-name">Basic Makeup + Hair + Drape</span><span
+                                class="price-dots"></span><span class="price-val">₹2,999</span></div>
+                        <div class="price-row"><span class="price-name">HD Makeup + Hair + Drape + Lashes</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Ultra HD + Hair + Drape + Lashes +
+                                Lenses</span><span class="price-dots"></span><span class="price-val"><span
+                                    class="rg">₹6,999</span></span></div>
+                        <div class="price-row"><span class="price-name">Airbrush + Hair + Drape + All
+                                Accessories</span><span class="price-dots"></span><span class="price-val"><span
+                                    class="rg">₹9,999</span></span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Hair Do</div>
+                        <div class="price-row"><span class="price-name">Classic Bun</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Braided Hairstyles</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">3D Bun</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Open Hairstyles</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Messy Bun</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Advance Bridal Hairstyle</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Bridal Bun</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹2,999</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Draping Services</div>
+                        <div class="price-row"><span class="price-name">Dupatta Drape</span><span
+                                class="price-dots"></span><span class="price-val">₹300</span></div>
+                        <div class="price-row"><span class="price-name">Saree Drape</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">South Indian / Bengali Drape</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹999</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 6</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════
+     PAGE 7 — MEHNDI SERVICES
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Mehndi Services</span>
+            </div>
+
+            <div class="single-col">
+                <div class="sec-title">Mehndi Services</div>
+                <div class="sec-sub">Intricate Artistry · Both Hands</div>
+                <div class="sec-rule"></div>
+                <div class="two-col">
+
+
+                    <div class="cat-block">
+                        <div class="cat-name">Basic &amp; Designer</div>
+                        <div class="price-row"><span class="price-name">Basic Mehndi (Wrist)</span><span
+                                class="price-dots"></span><span class="price-val">₹499</span></div>
+                        <div class="price-row"><span class="price-name">Designer Mehndi (Wrist)</span><span
+                                class="price-dots"></span><span class="price-val">₹699</span></div>
+                        <div class="price-row"><span class="price-name">Designer Intricate (Wrist)</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Intricate Bharwa (Wrist)</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Intricate Bharwa (Half)</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Designer (Full Length)</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Intricate Designer (Full)</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Bharwa Intricate (Full)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,499</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Festive / Theme / Engagement</div>
+                        <div class="price-row"><span class="price-name">Figure Mehndi (Wrist)</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Figure Mehndi (Half)</span><span
+                                class="price-dots"></span><span class="price-val">₹3,499</span></div>
+                        <div class="price-row"><span class="price-name">Figure Mehndi (Full)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
+                        </div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Bridal Mehndi</div>
+                        <div class="price-row"><span class="price-name">Non-Figure Bridal</span><span
+                                class="price-dots"></span><span class="price-val">₹6,999</span></div>
+                        <div class="price-row"><span class="price-name">2 Figures</span><span
+                                class="price-dots"></span><span class="price-val">₹8,999</span></div>
+                        <div class="price-row"><span class="price-name">4 Figures</span><span
+                                class="price-dots"></span><span class="price-val">₹10,999</span></div>
+                        <div class="price-row"><span class="price-name">Multiple Figures</span><span
+                                class="price-dots"></span><span class="price-val">₹14,999</span></div>
+                        <div class="price-row"><span class="price-name">Portrait Figure</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹19,999 –
+                                    ₹24,999</span></span></div>
+                    </div>
+
+                    <div class="cat-block mt12">
+                        <div class="cat-name">Groom Mehndi</div>
+                        <div class="price-row"><span class="price-name">Groom Wedding Mehndi</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
+                        </div>
+                    </div>
+
+                    <div class="offer-banner mt16">
+                        <div class="offer-icon">★</div>
+                        <div>
+                            <div class="offer-title">Happy Hours</div>
+                            <div class="offer-desc">Every Tuesday &amp; Thursday · 10 AM – 3 PM<br>Enjoy <strong>20–50%
+                                    off</strong> all services during Happy Hours.<br>Not valid on wedding/festive peak
+                                days. Cannot be combined with other offers.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 7</span>
+        </div>
+    </div>
+    <!-- ════════════════════════════════════
+     PAGE 8 — BRIDAL PACKAGES
+════════════════════════════════════ -->
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="pg-header">
+                <span class="pg-brand">Dastoor Makeovers</span>
+                <span class="pg-section-name">Bridal Packages</span>
+            </div>
+
+            <div style="text-align:center; margin-bottom:20px;">
+                <div class="sec-title" style="font-size:32px;">Bridal Makeup Packages</div>
+                <div class="sec-sub">All packages include: Hairstyle · Draping · Lashes · Lenses · Hair Accessories
+                    &amp; Extensions</div>
+                <div
+                    style="width:140px; height:1px; background:linear-gradient(90deg,transparent,var(--rg),transparent); margin:10px auto 0;">
+                </div>
+            </div>
+
+            <div class="bridal-grid">
+                <div class="bridal-card">
+                    <div class="occasion">Haldi · Mehendi · Mayra</div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Classic</div>
+                        <div class="tier-price">₹4,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">HD</div>
+                        <div class="tier-price">₹7,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Ultra HD</div>
+                        <div class="tier-price">₹9,999</div>
+                    </div>
+                </div>
+                <div class="bridal-card">
+                    <div class="occasion">Sangeet · Cocktail</div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Classic</div>
+                        <div class="tier-price">₹7,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">HD</div>
+                        <div class="tier-price">₹11,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Ultra HD</div>
+                        <div class="tier-price">₹17,999</div>
+                    </div>
+                </div>
+                <div class="bridal-card">
+                    <div class="occasion">Engagement</div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Classic</div>
+                        <div class="tier-price">₹9,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">HD</div>
+                        <div class="tier-price">₹14,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Ultra HD</div>
+                        <div class="tier-price">₹17,999</div>
+                    </div>
+                </div>
+                <div class="bridal-card" style="border-color:var(--rg); border-width:1.5px;">
+                    <div class="occasion" style="color:var(--rg-lt);">Wedding Day · Reception</div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Classic</div>
+                        <div class="tier-price">₹9,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">HD</div>
+                        <div class="tier-price">₹14,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Ultra HD</div>
+                        <div class="tier-price">₹19,999</div>
+                    </div>
+                    <div class="bridal-tier">
+                        <div class="tier-name">Airbrush</div>
+                        <div class="tier-price" style="color:var(--rg-lt);">₹24,999</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional offers -->
+            <div style="margin-top: 20px;">
+                <div class="sec-title" style="font-size: 22px; margin-bottom: 6px;">Additional Services</div>
+                <div class="sec-rule"></div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap: 10px;">
+                    <div class="offer-banner" style="margin-top:0;">
+                        <div class="offer-icon">◆</div>
+                        <div>
+                            <div class="offer-title">Bulk Packages</div>
+                            <div class="offer-desc">Group bookings for parties, weddings &amp; festivals. Special
+                                discounts available. Venue visits on request (call-out fee may apply if minimum booking
+                                not met).</div>
+                        </div>
+                    </div>
+                    <div class="offer-banner" style="margin-top:0;">
+                        <div class="offer-icon">◆</div>
+                        <div>
+                            <div class="offer-title">Bridal Jewellery Rental</div>
+                            <div class="offer-desc">Exclusive jewellery rental service for your big day. Contact us to
+                                browse our curated catalogue and reserve your pieces.</div>
+                        </div>
+                    </div>
+                    <div class="offer-banner" style="margin-top:0;">
+                        <div class="offer-icon">◆</div>
+                        <div>
+                            <div class="offer-title">Festive Season Offers</div>
+                            <div class="offer-desc">Special festive &amp; wedding season packages coming soon. Follow us
+                                and stay tuned for exclusive deals crafted for every celebration.</div>
+                        </div>
+                    </div>
+                    <div class="offer-banner" style="margin-top:0;">
+                        <div class="offer-icon">★</div>
+                        <div>
+                            <div class="offer-title">Happy Hours</div>
+                            <div class="offer-desc">Tuesdays &amp; Thursdays · 10 AM – 3 PM<br>20–50% off all services.
+                                Not valid on peak days or in combination with other offers.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer contact strip -->
+            <div
+                style="margin-top:20px; background:var(--card); border:1px solid var(--rg-line); border-radius:8px; padding:14px 20px; display:grid; grid-template-columns: 3fr 6fr 3fr; align-items:center; gap: 10px;">
+                <div>
+                    <div
+                        style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--rg); margin-bottom:4px;">
+                        Visit Us</div>
+                    <div style="font-size:11.5px; color:var(--soft);">
+                        &nbsp;·&nbsp; Gandhi Path West, Jaipur<br>
+                        &nbsp;·&nbsp; Chitrakoot, Jaipur
+                    </div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="margin-bottom: 10px;">
+                        <img id="logo-img" src="dastoor-logo.png" alt="Dastoor Makeovers Logo"
+                            style="display:block; width:60%; object-fit:contain; margin:0 auto;">
+                    </div>
+                    <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">One
+                        Stop Women's Beauty Solution</div>
+                </div>
+                <div style="text-align:right;">
+                    <div
+                        style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--rg); margin-bottom:4px;">
+                        Women Only</div>
+                    <div style="font-size:11.5px; color:var(--soft);">Premium Salon &amp; Bridal Studio</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-footer">
+            <span class="brand">Dastoor Makeovers</span>
+            <span>Chitrakoot & Gandhi Path West, Jaipur</span>
+            <span>Page 8</span>
+        </div>
+    </div>
+
+    <!-- Logo drag-and-drop script -->
+    <script>
+        const logoImg = document.getElementById('logo-img');
+        const logoPlaceholder = document.getElementById('logo-placeholder');
+        const logoContainer = document.getElementById('logo-container');
+
+        logoContainer.addEventListener('dragover', e => { e.preventDefault(); logoContainer.style.borderColor = '#E8C49A'; });
+        logoContainer.addEventListener('dragleave', () => { logoContainer.style.borderColor = ''; });
+        logoContainer.addEventListener('drop', e => {
+            e.preventDefault();
+            logoContainer.style.borderColor = '';
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    logoImg.src = ev.target.result;
+                    logoImg.style.display = 'block';
+                    logoPlaceholder.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        logoContainer.addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/png,image/jpeg,image/webp';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = ev => {
+                        logoImg.src = ev.target.result;
+                        logoImg.style.display = 'block';
+                        logoPlaceholder.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+    </script>
+</body>
+
+</html>

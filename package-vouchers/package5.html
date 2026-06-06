@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Bliss Starter Package - Dastoor Makeovers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0E0C0C;
+            --dark: #181414;
+            --card: #201C1C;
+            --rg: #C9965A;
+            --rg-lt: #E8C49A;
+            --rg-dim: rgba(201, 150, 90, 0.18);
+            --rg-line: rgba(201, 150, 90, 0.35);
+            --cream: #F5EDE0;
+            --muted: rgba(245, 237, 224, 0.45);
+            --soft: rgba(245, 237, 224, 0.75);
+            --tile-bg: #F2C84A;
+            --tile-ink: #2A1505;
+            --tile-amber: #7A3E08;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--cream);
+            font-family: 'Raleway', sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 800px;
+            min-height: 29.7cm;
+            background: var(--dark);
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .inner {
+            padding: 25px 40px 30px;
+        }
+
+        .corner {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-color: var(--rg);
+            border-style: solid;
+            opacity: 0.55;
+        }
+
+        .corner.tl { top: 15px; left: 15px; border-width: 1px 0 0 1px; }
+        .corner.tr { top: 15px; right: 15px; border-width: 1px 1px 0 0; }
+        .corner.bl { bottom: 15px; left: 15px; border-width: 0 0 1px 1px; }
+        .corner.br { bottom: 15px; right: 15px; border-width: 0 1px 1px 0; }
+
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            max-width: 130px;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .pg-section-name {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .sec-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--rg-lt);
+            margin-bottom: 2px;
+            line-height: 1.15;
+            text-align: center;
+        }
+
+        .sec-sub {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rg);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .sec-rule {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rg), transparent);
+            margin-bottom: 10px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .coupon-item {
+            border: 1px solid rgba(122, 62, 8, 0.35);
+            border-radius: 8px;
+            padding: 4px 10px 4px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            background: linear-gradient(135deg, #F5D76E 0%, #F0C440 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .coupon-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #7A3E08 0%, #C9965A 100%);
+            border-radius: 8px 0 0 8px;
+        }
+
+        .coupon-name {
+            font-size: 11px;
+            color: #2A1505;
+            font-weight: 600;
+            flex: 1;
+            line-height: 1.1;
+        }
+
+        .coupon-qty {
+            font-size: 9.5px;
+            color: #F5EDE0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            background: #7A3E08;
+            padding: 2px 8px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .coupon-val {
+            font-size: 11px;
+            color: #5C2E04;
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 45px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .offer-banner {
+            background: var(--card);
+            border: 1px solid var(--rg-line);
+            border-radius: 8px;
+            padding: 8px 22px;
+            margin-top: 6px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, var(--rg-dim) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .value-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 4px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(245, 237, 224, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .original-value {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        .original-value span {
+            color: var(--soft);
+            margin-left: 5px;
+            text-decoration: line-through;
+            text-underline-offset: 3px;
+        }
+
+        .savings {
+            font-size: 13px;
+            color: var(--rg-lt);
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .badge {
+            background-color: var(--rg);
+            color: var(--black);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 9px;
+            font-weight: 700;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .final-price-container {
+            margin-top: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-price-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .final-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--rg-lt);
+            line-height: 1;
+        }
+
+        .final-price .currency {
+            font-size: 20px;
+            vertical-align: super;
+            margin-right: 2px;
+            color: var(--rg);
+            font-weight: 400;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .terms-box, .why-box {
+            background: rgba(201, 150, 90, 0.03);
+            border: 1px solid rgba(201, 150, 90, 0.15);
+            border-radius: 8px;
+            padding: 8px 10px;
+        }
+
+        .box-title {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rg-lt);
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(201, 150, 90, 0.3);
+            padding-bottom: 6px;
+        }
+
+        .terms-list {
+            list-style: none;
+            font-size: 10px;
+            color: var(--soft);
+        }
+
+        .terms-list li {
+            margin-bottom: 5px;
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .terms-list li::before {
+            content: "•";
+            color: var(--rg);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .terms-list li strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .why-list {
+            list-style: none;
+            font-size: 10px;
+            color: var(--soft);
+        }
+        
+        .why-list li {
+            margin-bottom: 5px;
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .why-list li::before {
+            content: "✔";
+            color: var(--rg);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 9px;
+        }
+        
+        .why-highlight {
+            text-align: center;
+            font-weight: 600;
+            color: var(--rg-lt);
+            margin-top: 8px;
+            font-size: 11px;
+            font-style: italic;
+        }
+
+        /* ── CUSTOMER INFO CARD (bottom) ── */
+        .voucher-info {
+            background: #faf8f4;
+            border: 1.5px solid rgba(201, 150, 90, 0.35);
+            border-radius: 8px;
+            padding: 8px 14px 10px;
+            margin-top: 8px;
+            color: #1a1a1a;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .vi-title {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #9a7040;
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .v-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 24px;
+        }
+
+        .v-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .v-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .v-label {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #9a7040;
+            font-weight: 700;
+        }
+
+        .v-line {
+            border-bottom: 1px dashed #c8a878;
+            height: 16px;
+        }
+
+        .contact-strip {
+            margin-top: 10px;
+            padding: 6px 10px;
+            border-top: 1px solid var(--rg-line);
+            border-bottom: 1px solid var(--rg-line);
+            text-align: center;
+        }
+        .contact-strip .cs-row {
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: 0.4px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .contact-strip .cs-icon {
+            color: var(--rg);
+            font-size: 9px;
+            flex-shrink: 0;
+        }
+        .contact-strip .cs-sep {
+            color: var(--rg-line);
+            margin: 0 4px;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+                @media print {
+            body {
+                background: var(--black);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0; display: block;
+                height: 29.7cm !important;
+                max-height: 29.7cm !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+            }
+            .page {
+                box-shadow: none; margin: 0 auto;
+                width: 100%;
+                max-width: 210mm; 
+                height: 29.7cm !important;
+                max-height: 29.7cm !important;
+                overflow: hidden !important;
+                padding-bottom: 0px !important;
+                border: none !important;
+            }
+            .inner { padding: 15px 30px 15px !important; }
+            .header { margin-bottom: 6px !important; }
+            .logo { max-width: 110px !important; margin-bottom: 6px !important; }
+            .sec-title { font-size: 28px !important; margin-bottom: 2px !important; }
+            .sec-sub { margin-bottom: 6px !important; }
+            .sec-rule { margin-bottom: 8px !important; }
+            
+            .services-list { gap: 4px !important; margin-bottom: 8px !important; }
+            .coupon-item { padding: 4px 10px !important; }
+            
+            .offer-banner { margin-top: 8px !important; padding: 6px 20px !important; }
+            .value-top { margin-bottom: 6px !important; padding-bottom: 6px !important; }
+            
+            /* Pack 1-4 */
+            .terms { margin-top: 8px !important; padding: 0 15px !important; }
+            .terms p { margin-bottom: 3px !important; font-size: 9px !important; }
+            .terms div { margin-bottom: 4px !important; padding-bottom: 4px !important; font-size: 9px !important; }
+            .tagline { margin-bottom: 6px !important; }
+            
+            /* Pack 5-6 */
+            .info-grid { gap: 12px !important; margin-top: 8px !important; }
+            .terms-box, .why-box { padding: 6px 10px !important; }
+            .box-title { margin-bottom: 6px !important; padding-bottom: 4px !important; font-size: 9px !important; }
+            .terms-list li, .why-list li { margin-bottom: 3px !important; font-size: 9px !important; }
+            
+            .bonus-perk { margin-top: 8px !important; padding: 6px 12px !important; }
+            .bonus-title { font-size: 9px !important; margin-bottom: 3px !important; }
+            .bonus-desc { font-size: 9.5px !important; }
+
+            .contact-strip { margin-top: 8px !important; padding: 6px 10px !important; }
+            
+            .voucher-info { margin-top: 8px !important; padding: 8px 16px 10px !important; }
+            .vi-title { font-size: 8.5px !important; margin-bottom: 8px !important; }
+            .v-grid { gap: 8px 24px !important; }
+            .v-line { height: 14px !important; }
+            
+            .corner { position: fixed; }
+            .corner.tl { top: 12px;    left: 12px;  }
+            .corner.tr { top: 12px;    right: 12px; }
+            .corner.bl { bottom: 12px; left: 12px;  }
+            .corner.br { bottom: 12px; right: 12px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="inner">
+            <div class="header">
+                <img src="dastoor-logo.png" alt="Dastoor Makeovers Logo" class="logo">
+                <span class="pg-section-name">Starter Package</span>
+            </div>
+
+            <div class="sec-title">Beauty Bliss</div>
+            <div class="sec-sub">Package Inclusions</div>
+            <div class="sec-rule"></div>
+
+            <div class="services-list">
+                <div class="coupon-item">
+                    <div class="coupon-name">Hair Spa</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹700</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Hydra Facial</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹2,500</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Pedicure</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹700</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Hand Waxing (Rica)</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹500</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Leg Waxing (Rica)</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹800</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Manicure</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹400</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Underarm Waxing</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹150</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Root Touch-Up</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹700</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Body Massage</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹1,500</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Hair Cut</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹350</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Cleanup</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹400</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Face D-Tan</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹350</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Head Massage</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹350</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Face Bleach</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹350</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Head Wash</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹150</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Forehead Threading</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹50</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Foot Massage</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹350</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Eyebrow Threading</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹50</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Upper Lip Threading</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹50</div>
+                </div>
+                <div class="coupon-item">
+                    <div class="coupon-name">Face Sheet Mask</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹100</div>
+                </div>
+                <div class="coupon-item" style="grid-column: 1 / -1; justify-self: center; width: calc(50% - 4px);">
+                    <div class="coupon-name">Hand Polishing</div>
+                    <div class="coupon-qty">Qty 1</div>
+                    <div class="coupon-val">₹500</div>
+                </div>
+            </div>
+
+            <div class="offer-banner">
+                <div class="value-top">
+                    <div class="original-value">Total Service Value: <span>₹11,000</span></div>
+                    <div class="savings">You Save ₹6,001 <span class="badge">55% OFF</span></div>
+                </div>
+                <div class="final-price-container">
+                    <div class="final-price-label">Exclusive Package Offer</div>
+                    <div class="final-price"><span class="currency">₹</span>4,999</div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="terms-box">
+                    <div class="box-title">Terms &amp; Conditions</div>
+                    <ul class="terms-list">
+                        <li><strong>Package validity:</strong> 12 months from the date of activation.</li>
+                        <li>Services included in the package are <strong>fixed and cannot be adjusted, exchanged, or substituted</strong>.</li>
+                        <li>Package amount is <strong>non-refundable and non-transferable</strong>.</li>
+                        <li><strong>Prior appointment is mandatory</strong> before availing any service.</li>
+                        <li>Package services are valid only between <strong>10:00 AM and 7:00 PM</strong>.</li>
+                        <li>Services requested before or after the specified timings will not be covered under the package.</li>
+                        <li>All services included in this package can be availed <strong>only at salon locations</strong>.</li>
+                        <li>Package benefits cannot be redeemed for cash or combined with any other promotional offer unless specified by management.</li>
+                        <li>Management reserves the right to modify package terms and conditions without prior notice.</li>
+                    </ul>
+                </div>
+                <div class="why-box">
+                    <div class="box-title">Why Choose This Package?</div>
+                    <ul class="why-list">
+                        <li>Complete beauty, grooming &amp; wellness experience</li>
+                        <li>Premium salon services at an unbeatable price</li>
+                        <li>Ideal for regular self-care and maintenance</li>
+                        <li>Convenient 3-month validity period</li>
+                        <li>Exceptional value for money</li>
+                    </ul>
+                    <div class="why-highlight">Get all these services for Just ₹4,999!</div>
+                </div>
+            </div>
+
+            
+            <div class="bonus-perk">
+                <div class="bonus-title">🎁 Bonus Membership Perk</div>
+                <div class="bonus-desc">Enjoy an <strong>Additional 5% – 10% OFF</strong> on any extra salon services throughout your package validity period.</div>
+            </div>
+
+            <div class="contact-strip">
+                <div class="cs-row">
+                    <span class="cs-icon">&#128222;</span>
+                    <span>Call / WhatsApp: <strong>+91 97836 99460</strong> <span class="cs-sep">|</span> <strong>+91 96023 53156</strong></span>
+                </div>
+                <div class="cs-row">
+                    <span class="cs-icon">&#128205;</span>
+                    <span>Gandhi Path West, Vaishali Nagar Jaipur <span class="cs-sep">|</span> Chitrakoot, Vaishali Nagar Jaipur</span>
+                </div>
+            </div>
+
+            <div class="voucher-info">
+                <div class="vi-title">Customer Details</div>
+                <div class="v-grid">
+                    <div class="v-field">
+                        <div class="v-label">Date of Issue</div>
+                        <div class="v-line"></div>
+                    </div>
+                    <div class="v-field">
+                        <div class="v-label">Contact Number</div>
+                        <div class="v-line"></div>
+                    </div>
+                    <div class="v-field full">
+                        <div class="v-label">Customer's Name</div>
+                        <div class="v-line"></div>
+                    </div>
+                    <div class="v-field full">
+                        <div class="v-label">Authorized Signature</div>
+                        <div class="v-line"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
