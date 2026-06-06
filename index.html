@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dastoor Makeovers — Pricing & Packages Portal</title>
+    <meta name="description"
+        content="Explore our exclusive beauty menus, pricing guides, premium annual packages, and custom gift vouchers. Chitrakoot & Gandhi Path West, Jaipur.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0E0C0C;
+            --dark: #181414;
+            --card: #201C1C;
+            --rg: #C9965A;
+            --rg-lt: #E8C49A;
+            --rg-dim: rgba(201, 150, 90, 0.12);
+            --rg-line: rgba(201, 150, 90, 0.35);
+            --cream: #F5EDE0;
+            --muted: rgba(245, 237, 224, 0.45);
+            --soft: rgba(245, 237, 224, 0.75);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--cream);
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* ── DECORATIVE CORNER MARKS ── */
+        .corner {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border-color: var(--rg);
+            border-style: solid;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .corner.tl {
+            top: 20px;
+            left: 20px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .corner.tr {
+            top: 20px;
+            right: 20px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .corner.bl {
+            bottom: 20px;
+            left: 20px;
+            border-width: 0 0 1px 1px;
+        }
+
+        .corner.br {
+            bottom: 20px;
+            right: 20px;
+            border-width: 0 1px 1px 0;
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .logo-container {
+            max-width: 240px;
+            margin: 0 auto 20px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .brand-subtitle {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rg);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--rg-lt);
+            font-weight: 400;
+        }
+
+        .location-info {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .divider {
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rg), transparent);
+            margin: 25px auto;
+        }
+
+        /* ── SECTION TITLES ── */
+        .section-header {
+            margin: 50px 0 25px;
+            text-align: left;
+            border-left: 3px solid var(--rg);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 500;
+            color: var(--rg-lt);
+        }
+
+        .section-header p {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ── BROCHURE HERO CARD ── */
+        .brochure-hero {
+            background: linear-gradient(135deg, var(--card) 0%, #151212 100%);
+            border: 1px solid var(--rg-line);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+
+        .brochure-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, var(--rg-dim) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .brochure-hero:hover {
+            transform: translateY(-4px);
+            border-color: var(--rg);
+            box-shadow: 0 15px 40px rgba(201, 150, 90, 0.15);
+        }
+
+        .brochure-info {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .brochure-tag {
+            background-color: var(--rg);
+            color: var(--black);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .brochure-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--cream);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .brochure-desc {
+            font-size: 14px;
+            color: var(--soft);
+            margin-bottom: 25px;
+            max-width: 650px;
+        }
+
+        .brochure-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .brochure-badge {
+            border: 1px solid rgba(245, 237, 224, 0.15);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--soft);
+            font-size: 11px;
+            padding: 5px 14px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .brochure-hero:hover .brochure-badge {
+            border-color: var(--rg-line);
+            color: var(--rg-lt);
+        }
+
+        .brochure-action {
+            z-index: 2;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--rg);
+            color: var(--black);
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 6px;
+            border: 1px solid var(--rg);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(201, 150, 90, 0.2);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--rg-lt);
+            box-shadow: 0 6px 20px rgba(201, 150, 90, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--rg-lt);
+            border: 1px solid var(--rg-line);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--rg-dim);
+            border-color: var(--rg);
+            color: var(--cream);
+        }
+
+        /* ── GRID SYSTEM ── */
+        .grid-packages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .grid-vouchers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-pdfs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* ── CARD STYLING ── */
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(201, 150, 90, 0.15);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 100%, var(--rg-dim) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rg);
+            box-shadow: 0 12px 30px rgba(201, 150, 90, 0.12);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-tag {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rg);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--cream);
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 15px;
+            min-height: 38px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-final {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--rg-lt);
+            font-weight: 600;
+        }
+
+        .price-final span {
+            font-size: 16px;
+            vertical-align: super;
+            margin-right: 2px;
+        }
+
+        .price-original {
+            font-size: 12px;
+            text-decoration: line-through;
+            color: var(--muted);
+        }
+
+        .save-badge {
+            background-color: var(--rg-dim);
+            color: var(--rg-lt);
+            border: 1px solid var(--rg-line);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            margin-left: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+        }
+
+        .card-actions .btn {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 13px;
+        }
+
+        /* ── PDF CARD STYLING ── */
+        .pdf-card {
+            background: rgba(32, 28, 28, 0.5);
+            border: 1px dashed rgba(201, 150, 90, 0.25);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .pdf-card:hover {
+            border-style: solid;
+            border-color: var(--rg);
+            background: var(--card);
+            transform: translateY(-3px);
+        }
+
+        .pdf-icon {
+            font-size: 28px;
+            color: var(--rg);
+            margin-bottom: 10px;
+        }
+
+        .pdf-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            color: var(--cream);
+            margin-bottom: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pdf-link {
+            font-size: 11px;
+            color: var(--rg-lt);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--rg-line);
+            padding-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .pdf-card:hover .pdf-link {
+            color: var(--cream);
+            border-color: var(--rg);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 150, 90, 0.15);
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer strong {
+            color: var(--rg-lt);
+            font-weight: 500;
+        }
+
+        /* ── RESPONSIVE MEDIA QUERIES ── */
+        @media (max-width: 1024px) {
+            .grid-vouchers {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-pdfs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            header {
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .brochure-hero {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .brochure-desc {
+                margin-bottom: 20px;
+            }
+
+            .brochure-badges {
+                justify-content: center;
+            }
+
+            .grid-packages {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-vouchers {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-pdfs {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                margin: 40px 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ornamental Corner Accents -->
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <img src="dastoor-logo.png" alt="Dastoor Makeovers Logo">
+            </div>
+            <div class="brand-subtitle">Premium Women's Salon &amp; Bridal Studio</div>
+            <h1>Pricing &amp; <em>Packages</em> Portal</h1>
+            <div class="location-info">Chitrakoot &amp; Gandhi Path West, Jaipur</div>
+            <div class="divider"></div>
+        </header>
+
+        <!-- Section: Price List Brochure -->
+        <div class="brochure-hero">
+            <div class="brochure-info">
+                <span class="brochure-tag">Complete Menu</span>
+                <h3 class="brochure-title">Services Price List Brochure</h3>
+                <p class="brochure-desc">Explore our full menu of premium services. Browse custom treatments, expert
+                    stylings, and makeup services tailored specifically for you across all of our beauty departments.
+                </p>
+                <div class="brochure-badges">
+                    <span class="brochure-badge">Hair Care</span>
+                    <span class="brochure-badge">Skin &amp; Facials</span>
+                    <span class="brochure-badge">Bridal Studio</span>
+                    <span class="brochure-badge">Nail Art</span>
+                    <span class="brochure-badge">Mehndi</span>
+                    <span class="brochure-badge">Makeup</span>
+                </div>
+            </div>
+            <div class="brochure-action">
+                <a href="price-brochure.html" class="btn">View Price Brochure</a>
+            </div>
+        </div>
+
+        <!-- Section: Premium Core Packages -->
+        <div class="section-header">
+            <h2>Premium Core Packages</h2>
+            <p>Annual &amp; Seasonal All-Inclusive Grooming Programs</p>
+        </div>
+
+        <div class="grid-packages">
+            <!-- Package 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Package 1</span>
+                    <h3 class="card-title">The Royal Glow</h3>
+                    <p class="card-desc">Head-to-toe luxury featuring Hydra Boost Facial, Loreal Hairspa, Pedicure,
+                        Manicure, Waxing, and more (30+ sessions, 12 treatments).</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>9,999</div>
+                        <div class="price-original">₹17,000</div>
+                        <span class="save-badge">41% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="packages/package1.html" class="btn">Web View</a>
+                        <a href="package1.html" class="btn btn-outline">Print View</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Package 2</span>
+                    <h3 class="card-title">Signature Glow &amp; Wellness</h3>
+                    <p class="card-desc">Year-round beauty and wellness care designed to keep you radiant every month of
+                        the year.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>35,000</div>
+                        <div class="price-original">₹60,000</div>
+                        <span class="save-badge">41% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="packages/package2.html" class="btn">View Package</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Package 3</span>
+                    <h3 class="card-title">Diamond Glow Transformation</h3>
+                    <p class="card-desc">Complete professional beauty transformation package featuring premium skin
+                        resurfacing, polishing, and restoration therapies.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>50,000</div>
+                        <div class="price-original">₹65,900</div>
+                        <span class="save-badge">24% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="packages/package3.html" class="btn">View Package</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Package 4</span>
+                    <h3 class="card-title">Royal Radiance Elite</h3>
+                    <p class="card-desc">The ultimate luxury beauty experience. Indulge in our most premium elite face,
+                        hair, and body treatments.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>55,000</div>
+                        <div class="price-original">₹74,150</div>
+                        <span class="save-badge">26% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="packages/package4.html" class="btn">View Package</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Gift & Promotional Vouchers -->
+        <div class="section-header">
+            <h2>Gift &amp; Promotional Vouchers</h2>
+            <p>Perfect for Gifting or Special Celebrations</p>
+        </div>
+
+        <div class="grid-vouchers">
+            <!-- Voucher 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Voucher 1</span>
+                    <h3 class="card-title">Glow &amp; Groom</h3>
+                    <p class="card-desc">Premium salon starter voucher featuring skin glowing cleanup, basic hair spa,
+                        and grooming essentials.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>2,499</div>
+                        <div class="price-original">₹8,500</div>
+                        <span class="save-badge">70% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="package-vouchers/package6.html" class="btn">View Voucher</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voucher 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Voucher 2</span>
+                    <h3 class="card-title">Beauty Bliss</h3>
+                    <p class="card-desc">Relaxing pampering voucher with global hair spa, premium detan therapy, glow
+                        facial, and mani-pedi spa.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>4,999</div>
+                        <div class="price-original">₹11,000</div>
+                        <span class="save-badge">55% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="package-vouchers/package5.html" class="btn">View Voucher</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voucher 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Voucher 3</span>
+                    <h3 class="card-title">The Royal Glow</h3>
+                    <p class="card-desc">Elite styling and body rejuvenation voucher pack with A4 printable presentation
+                        format.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>9,999</div>
+                        <div class="price-original">₹17,000</div>
+                        <span class="save-badge">41% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="package-vouchers/package1.html" class="btn">View Voucher</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voucher 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Voucher 4</span>
+                    <h3 class="card-title">Signature Glow &amp; Wellness</h3>
+                    <p class="card-desc">Luxurious year-round voucher. A perfect gift for bridal preparations and
+                        ultimate pampering sessions.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>35,000</div>
+                        <div class="price-original">₹60,000</div>
+                        <span class="save-badge">41% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="package-vouchers/package2.html" class="btn">View Voucher</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voucher 5 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Voucher 5</span>
+                    <h3 class="card-title">Diamond Glow Transformation</h3>
+                    <p class="card-desc">Advanced luxury styling voucher. Promotes deep skin rejuvenation and full
+                        beauty makeover sessions.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>50,000</div>
+                        <div class="price-original">₹65,900</div>
+                        <span class="save-badge">24% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="package-vouchers/package3.html" class="btn">View Voucher</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voucher 6 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Voucher 6</span>
+                    <h3 class="card-title">Royal Radiance Elite</h3>
+                    <p class="card-desc">The crown jewel of gifts. Top tier face, skin, hair, and body luxury rituals
+                        for elite clients.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <div class="price-final"><span>₹</span>55,000</div>
+                        <div class="price-original">₹74,150</div>
+                        <span class="save-badge">26% OFF</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="package-vouchers/package4.html" class="btn">View Voucher</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: High-Res Printed PDF Downloads -->
+        <div class="section-header">
+            <h2>Printable PDF Brochures</h2>
+            <p>Download pre-formatted A4 print-ready designs</p>
+        </div>
+
+        <div class="grid-pdfs">
+            <!-- PDF 1 -->
+            <div class="pdf-card">
+                <div class="pdf-icon">📄</div>
+                <h4 class="pdf-title">The Royal Glow Package</h4>
+                <a href="voucher-pdf/The Royal Glow Package - Dastoor Makeovers.pdf" class="pdf-link" download>Download
+                    PDF</a>
+            </div>
+
+            <!-- PDF 2 -->
+            <div class="pdf-card">
+                <div class="pdf-icon">📄</div>
+                <h4 class="pdf-title">Signature Glow &amp; Wellness</h4>
+                <a href="voucher-pdf/Signature Glow &amp; Wellness Package - Dastoor Makeovers.pdf" class="pdf-link"
+                    download>Download PDF</a>
+            </div>
+
+            <!-- PDF 3 -->
+            <div class="pdf-card">
+                <div class="pdf-icon">📄</div>
+                <h4 class="pdf-title">Diamond Glow Transformation</h4>
+                <a href="voucher-pdf/Diamond Glow Transformation Package - Dastoor Makeovers.pdf" class="pdf-link"
+                    download>Download PDF</a>
+            </div>
+
+            <!-- PDF 4 -->
+            <div class="pdf-card">
+                <div class="pdf-icon">📄</div>
+                <h4 class="pdf-title">Royal Radiance Elite Package</h4>
+                <a href="voucher-pdf/Royal Radiance Elite Package - Dastoor Makeovers.pdf" class="pdf-link"
+                    download>Download PDF</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 <strong>Dastoor Makeovers</strong>. All rights reserved.</p>
+            <p>Chitrakoot Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp; Gandhi Path West Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp;
+                Jaipur, Rajasthan</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
