@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dastoor Makeovers — Pricing & Packages Portal</title>
+    <title>Dastoor Makeovers — Pricing & Packages Directory</title>
     <meta name="description"
         content="Explore our exclusive beauty menus, pricing guides, premium annual packages, and custom gift vouchers. Chitrakoot & Gandhi Path West, Jaipur.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,7 +92,7 @@
         /* ── HEADER ── */
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             position: relative;
         }
 
@@ -145,195 +145,136 @@
             margin: 25px auto;
         }
 
-        /* ── SECTION TITLES ── */
-        .section-header {
-            margin: 50px 0 25px;
-            text-align: left;
-            border-left: 3px solid var(--rg);
-            padding-left: 15px;
+        /* ── DIRECTORY SELECTION / TABS ── */
+        .dir-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0 50px;
+            flex-wrap: wrap;
         }
 
-        .section-header h2 {
+        .nav-btn {
+            background: transparent;
+            border: 1px solid rgba(201, 150, 90, 0.25);
+            color: var(--soft);
+            padding: 10px 24px;
+            border-radius: 4px;
             font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-size: 14px;
             font-weight: 500;
-            color: var(--rg-lt);
-        }
-
-        .section-header p {
-            font-size: 12px;
-            color: var(--muted);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: 4px;
-        }
-
-        /* ── BROCHURE HERO CARD ── */
-        .brochure-hero {
-            background: linear-gradient(135deg, var(--card) 0%, #151212 100%);
-            border: 1px solid var(--rg-line);
-            border-radius: 12px;
-            padding: 40px;
+            cursor: pointer;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            transition: var(--transition);
-        }
-
-        .brochure-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 80% 20%, var(--rg-dim) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .brochure-hero:hover {
-            transform: translateY(-4px);
-            border-color: var(--rg);
-            box-shadow: 0 15px 40px rgba(201, 150, 90, 0.15);
-        }
-
-        .brochure-info {
-            flex: 1;
-            z-index: 2;
-        }
-
-        .brochure-tag {
-            background-color: var(--rg);
-            color: var(--black);
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .brochure-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--cream);
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .brochure-desc {
-            font-size: 14px;
-            color: var(--soft);
-            margin-bottom: 25px;
-            max-width: 650px;
-        }
-
-        .brochure-badges {
-            display: flex;
-            flex-wrap: wrap;
             gap: 8px;
         }
 
-        .brochure-badge {
-            border: 1px solid rgba(245, 237, 224, 0.15);
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--soft);
-            font-size: 11px;
-            padding: 5px 14px;
-            border-radius: 30px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .brochure-hero:hover .brochure-badge {
-            border-color: var(--rg-line);
-            color: var(--rg-lt);
-        }
-
-        .brochure-action {
-            z-index: 2;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--rg);
-            color: var(--black);
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 6px;
-            border: 1px solid var(--rg);
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(201, 150, 90, 0.2);
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--rg-lt);
-            box-shadow: 0 6px 20px rgba(201, 150, 90, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--rg-lt);
-            border: 1px solid var(--rg-line);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background: var(--rg-dim);
+        .nav-btn:hover {
             border-color: var(--rg);
             color: var(--cream);
+            background: var(--rg-dim);
+        }
+
+        .nav-btn.active {
+            background: var(--rg);
+            color: var(--black);
+            border-color: var(--rg);
+            font-weight: 600;
+        }
+
+        .nav-btn .badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: inherit;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-btn.active .badge {
+            background: rgba(0, 0, 0, 0.15);
+            color: var(--black);
+        }
+
+        /* ── FOLDER SECTIONS ── */
+        .folder-section {
+            margin-bottom: 60px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .folder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--rg-line);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+        }
+
+        .folder-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .folder-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--rg);
+        }
+
+        .folder-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .folder-title .path {
+            color: var(--rg-lt);
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .folder-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
         }
 
         /* ── GRID SYSTEM ── */
-        .grid-packages {
+        .files-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 25px;
         }
 
-        .grid-vouchers {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .grid-pdfs {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        /* ── CARD STYLING ── */
-        .card {
-            background: var(--card);
-            border: 1px solid rgba(201, 150, 90, 0.15);
+        /* ── FILE CARD STYLING ── */
+        .file-card {
+            background: linear-gradient(135deg, var(--card) 0%, #151212 100%);
+            border: 1px solid rgba(201, 150, 90, 0.12);
             border-radius: 8px;
-            padding: 25px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
-            overflow: hidden;
             transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-height: 220px;
         }
 
-        .card::before {
+        .file-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -346,156 +287,97 @@
             pointer-events: none;
         }
 
-        .card:hover {
+        .file-card:hover {
             transform: translateY(-5px);
             border-color: var(--rg);
-            box-shadow: 0 12px 30px rgba(201, 150, 90, 0.12);
+            box-shadow: 0 10px 30px rgba(201, 150, 90, 0.1);
         }
 
-        .card:hover::before {
+        .file-card:hover::before {
             opacity: 1;
         }
 
-        .card-header {
-            margin-bottom: 20px;
+        .file-info {
             position: relative;
             z-index: 1;
         }
 
-        .card-tag {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--rg);
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: var(--cream);
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-
-        .card-desc {
-            font-size: 12px;
-            color: var(--muted);
-            margin-bottom: 15px;
-            min-height: 38px;
-        }
-
-        .price-box {
+        .file-header-row {
             display: flex;
-            align-items: baseline;
-            gap: 10px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .price-final {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: var(--rg-lt);
-            font-weight: 600;
-        }
-
-        .price-final span {
-            font-size: 16px;
-            vertical-align: super;
-            margin-right: 2px;
-        }
-
-        .price-original {
-            font-size: 12px;
-            text-decoration: line-through;
-            color: var(--muted);
-        }
-
-        .save-badge {
-            background-color: var(--rg-dim);
-            color: var(--rg-lt);
-            border: 1px solid var(--rg-line);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 500;
-            margin-left: auto;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-            position: relative;
-            z-index: 1;
-            margin-top: auto;
-        }
-
-        .card-actions .btn {
-            flex: 1;
-            padding: 10px 15px;
-            font-size: 13px;
-        }
-
-        /* ── PDF CARD STYLING ── */
-        .pdf-card {
-            background: rgba(32, 28, 28, 0.5);
-            border: 1px dashed rgba(201, 150, 90, 0.25);
-            border-radius: 6px;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .file-ext {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--black);
+            background: var(--rg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+        }
+
+        .file-name {
+            font-family: monospace;
+            font-size: 11px;
+            color: var(--muted);
             transition: var(--transition);
         }
 
-        .pdf-card:hover {
-            border-style: solid;
-            border-color: var(--rg);
-            background: var(--card);
-            transform: translateY(-3px);
+        .file-card:hover .file-name {
+            color: var(--rg-lt);
         }
 
-        .pdf-icon {
-            font-size: 28px;
-            color: var(--rg);
-            margin-bottom: 10px;
-        }
-
-        .pdf-title {
+        .file-title {
             font-family: 'Playfair Display', serif;
-            font-size: 14px;
+            font-size: 19px;
             color: var(--cream);
-            margin-bottom: 15px;
-            font-weight: 500;
-            line-height: 1.4;
-            min-height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
-        .pdf-link {
-            font-size: 11px;
+        .file-desc {
+            font-size: 12.5px;
+            color: var(--soft);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .file-actions {
+            margin-top: auto;
+            border-top: 1px solid rgba(245, 237, 224, 0.08);
+            padding-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .file-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--rg-lt);
             text-decoration: none;
-            border-bottom: 1px dotted var(--rg-line);
-            padding-bottom: 2px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            font-weight: 500;
             transition: var(--transition);
         }
 
-        .pdf-card:hover .pdf-link {
+        .file-link .arrow-icon {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .file-card:hover .file-link {
             color: var(--cream);
-            border-color: var(--rg);
+        }
+
+        .file-card:hover .file-link .arrow-icon {
+            transform: translateX(4px);
+            color: var(--rg);
         }
 
         /* ── FOOTER ── */
@@ -518,58 +400,43 @@
         }
 
         /* ── RESPONSIVE MEDIA QUERIES ── */
-        @media (max-width: 1024px) {
-            .grid-vouchers {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .grid-pdfs {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
             body {
                 padding: 30px 15px;
             }
 
             header {
-                margin-bottom: 40px;
+                margin-bottom: 20px;
             }
 
             h1 {
                 font-size: 32px;
             }
 
-            .brochure-hero {
+            .folder-header {
                 flex-direction: column;
-                align-items: stretch;
-                padding: 30px 20px;
-                text-align: center;
+                align-items: flex-start;
+                gap: 8px;
             }
 
-            .brochure-desc {
-                margin-bottom: 20px;
+            .folder-meta {
+                align-self: flex-start;
             }
 
-            .brochure-badges {
+            .files-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dir-nav {
+                margin: 20px 0 40px;
+                gap: 10px;
+            }
+
+            .nav-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+                flex: 1 1 40%;
                 justify-content: center;
-            }
-
-            .grid-packages {
-                grid-template-columns: 1fr;
-            }
-
-            .grid-vouchers {
-                grid-template-columns: 1fr;
-            }
-
-            .grid-pdfs {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header {
-                margin: 40px 0 20px;
             }
         }
     </style>
@@ -596,293 +463,497 @@
             <div class="divider"></div>
         </header>
 
-        <!-- Section: Price List Brochure -->
-        <div class="brochure-hero">
-            <div class="brochure-info">
-                <span class="brochure-tag">Complete Menu</span>
-                <h3 class="brochure-title">Services Price List Brochure</h3>
-                <p class="brochure-desc">Explore our full menu of premium services. Browse custom treatments, expert
-                    stylings, and makeup services tailored specifically for you across all of our beauty departments.
-                </p>
-                <div class="brochure-badges">
-                    <span class="brochure-badge">Hair Care</span>
-                    <span class="brochure-badge">Skin &amp; Facials</span>
-                    <span class="brochure-badge">Bridal Studio</span>
-                    <span class="brochure-badge">Nail Art</span>
-                    <span class="brochure-badge">Mehndi</span>
-                    <span class="brochure-badge">Makeup</span>
-                </div>
-            </div>
-            <div class="brochure-action">
-                <a href="price-brochure.html" class="btn">View Price Brochure</a>
-            </div>
+        <!-- Directory Navigation / Filter Tabs -->
+        <div class="dir-nav">
+            <button class="nav-btn active" onclick="filterFolder('all')">All Folders</button>
+            <button class="nav-btn" onclick="filterFolder('root')">Root (/) <span class="badge">2</span></button>
+            <button class="nav-btn" onclick="filterFolder('packages')">packages/ <span class="badge">4</span></button>
+            <button class="nav-btn" onclick="filterFolder('vouchers')">package-vouchers/ <span class="badge">6</span></button>
+            <button class="nav-btn" onclick="filterFolder('beautybliss')">voucher-pdf/beautybliss/ <span class="badge">6</span></button>
         </div>
 
-        <!-- Section: Premium Core Packages -->
-        <div class="section-header">
-            <h2>Premium Core Packages</h2>
-            <p>Annual &amp; Seasonal All-Inclusive Grooming Programs</p>
-        </div>
-
-        <div class="grid-packages">
-            <!-- Package 1 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Package 1</span>
-                    <h3 class="card-title">The Royal Glow</h3>
-                    <p class="card-desc">Head-to-toe luxury featuring Hydra Boost Facial, Loreal Hairspa, Pedicure,
-                        Manicure, Waxing, and more (30+ sessions, 12 treatments).</p>
+        <!-- Section: Root Folder -->
+        <div class="folder-section" data-folder="root">
+            <div class="folder-header">
+                <div class="folder-title-wrap">
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+                    </svg>
+                    <h2 class="folder-title">Root Directory <span class="path">/</span></h2>
                 </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>9,999</div>
-                        <div class="price-original">₹17,000</div>
-                        <span class="save-badge">41% OFF</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="packages/package1.html" class="btn">Web View</a>
-                        <a href="package1.html" class="btn btn-outline">Print View</a>
-                    </div>
-                </div>
+                <p class="folder-meta">2 HTML Files</p>
             </div>
 
-            <!-- Package 2 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Package 2</span>
-                    <h3 class="card-title">Signature Glow &amp; Wellness</h3>
-                    <p class="card-desc">Year-round beauty and wellness care designed to keep you radiant every month of
-                        the year.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>35,000</div>
-                        <div class="price-original">₹60,000</div>
-                        <span class="save-badge">41% OFF</span>
+            <div class="files-grid">
+                <!-- price-brochure.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">price-brochure.html</span>
+                        </div>
+                        <h3 class="file-title">Dastoor Makeovers — Price List</h3>
+                        <p class="file-desc">Premium salon services price list brochure including hair, skin, nails, makeup, and styling pricing menus.</p>
                     </div>
-                    <div class="card-actions">
-                        <a href="packages/package2.html" class="btn">View Package</a>
+                    <div class="file-actions">
+                        <a href="price-brochure.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Package 3 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Package 3</span>
-                    <h3 class="card-title">Diamond Glow Transformation</h3>
-                    <p class="card-desc">Complete professional beauty transformation package featuring premium skin
-                        resurfacing, polishing, and restoration therapies.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>50,000</div>
-                        <div class="price-original">₹65,900</div>
-                        <span class="save-badge">24% OFF</span>
+                <!-- package1.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package1.html</span>
+                        </div>
+                        <h3 class="file-title">The Royal Glow Package</h3>
+                        <p class="file-desc">Print-friendly single-page presentation layout for the Royal Glow package containing services breakdown and discount details.</p>
                     </div>
-                    <div class="card-actions">
-                        <a href="packages/package3.html" class="btn">View Package</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Package 4 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Package 4</span>
-                    <h3 class="card-title">Royal Radiance Elite</h3>
-                    <p class="card-desc">The ultimate luxury beauty experience. Indulge in our most premium elite face,
-                        hair, and body treatments.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>55,000</div>
-                        <div class="price-original">₹74,150</div>
-                        <span class="save-badge">26% OFF</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="packages/package4.html" class="btn">View Package</a>
+                    <div class="file-actions">
+                        <a href="package1.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Section: Gift & Promotional Vouchers -->
-        <div class="section-header">
-            <h2>Gift &amp; Promotional Vouchers</h2>
-            <p>Perfect for Gifting or Special Celebrations</p>
-        </div>
-
-        <div class="grid-vouchers">
-            <!-- Voucher 1 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Voucher 1</span>
-                    <h3 class="card-title">Glow &amp; Groom</h3>
-                    <p class="card-desc">Premium salon starter voucher featuring skin glowing cleanup, basic hair spa,
-                        and grooming essentials.</p>
+        <!-- Section: Packages Folder -->
+        <div class="folder-section" data-folder="packages">
+            <div class="folder-header">
+                <div class="folder-title-wrap">
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+                    </svg>
+                    <h2 class="folder-title">Packages Directory <span class="path">/packages/</span></h2>
                 </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>2,499</div>
-                        <div class="price-original">₹8,500</div>
-                        <span class="save-badge">70% OFF</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="package-vouchers/package6.html" class="btn">View Voucher</a>
-                    </div>
-                </div>
+                <p class="folder-meta">4 HTML Files</p>
             </div>
 
-            <!-- Voucher 2 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Voucher 2</span>
-                    <h3 class="card-title">Beauty Bliss</h3>
-                    <p class="card-desc">Relaxing pampering voucher with global hair spa, premium detan therapy, glow
-                        facial, and mani-pedi spa.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>4,999</div>
-                        <div class="price-original">₹11,000</div>
-                        <span class="save-badge">55% OFF</span>
+            <div class="files-grid">
+                <!-- packages/package1.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">packages/package1.html</span>
+                        </div>
+                        <h3 class="file-title">The Royal Glow Package</h3>
+                        <p class="file-desc">Deluxe grooming membership featuring Hydra Boost facial, L'Oreal hairspa, manicures, and complete wellness services.</p>
                     </div>
-                    <div class="card-actions">
-                        <a href="package-vouchers/package5.html" class="btn">View Voucher</a>
+                    <div class="file-actions">
+                        <a href="packages/package1.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Voucher 3 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Voucher 3</span>
-                    <h3 class="card-title">The Royal Glow</h3>
-                    <p class="card-desc">Elite styling and body rejuvenation voucher pack with A4 printable presentation
-                        format.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>9,999</div>
-                        <div class="price-original">₹17,000</div>
-                        <span class="save-badge">41% OFF</span>
+                <!-- packages/package2.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">packages/package2.html</span>
+                        </div>
+                        <h3 class="file-title">Signature Glow &amp; Wellness Package</h3>
+                        <p class="file-desc">Multi-session skin rejuvenation, hair treatment, and body massage package designed for premium annual care.</p>
                     </div>
-                    <div class="card-actions">
-                        <a href="package-vouchers/package1.html" class="btn">View Voucher</a>
+                    <div class="file-actions">
+                        <a href="packages/package2.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Voucher 4 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Voucher 4</span>
-                    <h3 class="card-title">Signature Glow &amp; Wellness</h3>
-                    <p class="card-desc">Luxurious year-round voucher. A perfect gift for bridal preparations and
-                        ultimate pampering sessions.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>35,000</div>
-                        <div class="price-original">₹60,000</div>
-                        <span class="save-badge">41% OFF</span>
+                <!-- packages/package3.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">packages/package3.html</span>
+                        </div>
+                        <h3 class="file-title">Diamond Glow Transformation Package</h3>
+                        <p class="file-desc">Premium aesthetic transformation package with advanced skin resurfacing, polishing, and intense beauty therapies.</p>
                     </div>
-                    <div class="card-actions">
-                        <a href="package-vouchers/package2.html" class="btn">View Voucher</a>
+                    <div class="file-actions">
+                        <a href="packages/package3.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Voucher 5 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Voucher 5</span>
-                    <h3 class="card-title">Diamond Glow Transformation</h3>
-                    <p class="card-desc">Advanced luxury styling voucher. Promotes deep skin rejuvenation and full
-                        beauty makeover sessions.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>50,000</div>
-                        <div class="price-original">₹65,900</div>
-                        <span class="save-badge">24% OFF</span>
+                <!-- packages/package4.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">packages/package4.html</span>
+                        </div>
+                        <h3 class="file-title">Royal Radiance Elite Package</h3>
+                        <p class="file-desc">Elite luxury grooming experience featuring high-end skin care, premium hair services, and ultimate relaxation treatments.</p>
                     </div>
-                    <div class="card-actions">
-                        <a href="package-vouchers/package3.html" class="btn">View Voucher</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Voucher 6 -->
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-tag">Voucher 6</span>
-                    <h3 class="card-title">Royal Radiance Elite</h3>
-                    <p class="card-desc">The crown jewel of gifts. Top tier face, skin, hair, and body luxury rituals
-                        for elite clients.</p>
-                </div>
-                <div>
-                    <div class="price-box">
-                        <div class="price-final"><span>₹</span>55,000</div>
-                        <div class="price-original">₹74,150</div>
-                        <span class="save-badge">26% OFF</span>
-                    </div>
-                    <div class="card-actions">
-                        <a href="package-vouchers/package4.html" class="btn">View Voucher</a>
+                    <div class="file-actions">
+                        <a href="packages/package4.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Section: High-Res Printed PDF Downloads -->
-        <div class="section-header">
-            <h2>Printable PDF Brochures</h2>
-            <p>Download pre-formatted A4 print-ready designs</p>
+        <!-- Section: Package Vouchers Folder -->
+        <div class="folder-section" data-folder="vouchers">
+            <div class="folder-header">
+                <div class="folder-title-wrap">
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+                    </svg>
+                    <h2 class="folder-title">Package Vouchers Directory <span class="path">/package-vouchers/</span></h2>
+                </div>
+                <p class="folder-meta">6 HTML Files</p>
+            </div>
+
+            <div class="files-grid">
+                <!-- package-vouchers/package1.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package-vouchers/package1.html</span>
+                        </div>
+                        <h3 class="file-title">The Royal Glow Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Royal Glow package detailing services, original pricing, and promotional terms.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package-vouchers/package1.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- package-vouchers/package2.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package-vouchers/package2.html</span>
+                        </div>
+                        <h3 class="file-title">Signature Glow &amp; Wellness Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Signature Glow &amp; Wellness package detailing session splits and validity guidelines.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package-vouchers/package2.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- package-vouchers/package3.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package-vouchers/package3.html</span>
+                        </div>
+                        <h3 class="file-title">Diamond Glow Transformation Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Diamond Glow Transformation package detailing exclusive therapies and custom options.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package-vouchers/package3.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- package-vouchers/package4.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package-vouchers/package4.html</span>
+                        </div>
+                        <h3 class="file-title">Royal Radiance Elite Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Royal Radiance Elite package detailing VIP salon therapies and guest credentials.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package-vouchers/package4.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- package-vouchers/package5.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package-vouchers/package5.html</span>
+                        </div>
+                        <h3 class="file-title">Beauty Bliss Starter Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Beauty Bliss Starter package featuring hair spa, detan, facial, and mani-pedi treatments.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package-vouchers/package5.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- package-vouchers/package6.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package-vouchers/package6.html</span>
+                        </div>
+                        <h3 class="file-title">Glow &amp; Groom Annual Privilege Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Glow &amp; Groom Privilege package including essential cleanups and grooming hair-spa options.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package-vouchers/package6.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="grid-pdfs">
-            <!-- PDF 1 -->
-            <div class="pdf-card">
-                <div class="pdf-icon">📄</div>
-                <h4 class="pdf-title">The Royal Glow Package</h4>
-                <a href="voucher-pdf/The Royal Glow Package - Dastoor Makeovers.pdf" class="pdf-link" download>Download
-                    PDF</a>
+        <!-- Section: Beauty Bliss Folder -->
+        <div class="folder-section" data-folder="beautybliss">
+            <div class="folder-header">
+                <div class="folder-title-wrap">
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+                    </svg>
+                    <h2 class="folder-title">Beauty Bliss Directory <span class="path">/voucher-pdf/beautybliss/</span></h2>
+                </div>
+                <p class="folder-meta">6 HTML Files</p>
             </div>
 
-            <!-- PDF 2 -->
-            <div class="pdf-card">
-                <div class="pdf-icon">📄</div>
-                <h4 class="pdf-title">Signature Glow &amp; Wellness</h4>
-                <a href="voucher-pdf/Signature Glow &amp; Wellness Package - Dastoor Makeovers.pdf" class="pdf-link"
-                    download>Download PDF</a>
-            </div>
+            <div class="files-grid">
+                <!-- voucher-pdf/beautybliss/package1.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">voucher-pdf/beautybliss/package1.html</span>
+                        </div>
+                        <h3 class="file-title">The Royal Glow Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Royal Glow package detailing services, original pricing, and promotional terms.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="voucher-pdf/beautybliss/package1.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-            <!-- PDF 3 -->
-            <div class="pdf-card">
-                <div class="pdf-icon">📄</div>
-                <h4 class="pdf-title">Diamond Glow Transformation</h4>
-                <a href="voucher-pdf/Diamond Glow Transformation Package - Dastoor Makeovers.pdf" class="pdf-link"
-                    download>Download PDF</a>
-            </div>
+                <!-- voucher-pdf/beautybliss/package2.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">voucher-pdf/beautybliss/package2.html</span>
+                        </div>
+                        <h3 class="file-title">Signature Glow &amp; Wellness Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Signature Glow &amp; Wellness package detailing session splits and validity guidelines.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="voucher-pdf/beautybliss/package2.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-            <!-- PDF 4 -->
-            <div class="pdf-card">
-                <div class="pdf-icon">📄</div>
-                <h4 class="pdf-title">Royal Radiance Elite Package</h4>
-                <a href="voucher-pdf/Royal Radiance Elite Package - Dastoor Makeovers.pdf" class="pdf-link"
-                    download>Download PDF</a>
+                <!-- voucher-pdf/beautybliss/package3.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">voucher-pdf/beautybliss/package3.html</span>
+                        </div>
+                        <h3 class="file-title">Diamond Glow Transformation Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Diamond Glow Transformation package detailing exclusive therapies and custom options.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="voucher-pdf/beautybliss/package3.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- voucher-pdf/beautybliss/package4.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">voucher-pdf/beautybliss/package4.html</span>
+                        </div>
+                        <h3 class="file-title">Royal Radiance Elite Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Royal Radiance Elite package detailing VIP salon therapies and guest credentials.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="voucher-pdf/beautybliss/package4.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- voucher-pdf/beautybliss/package5.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">voucher-pdf/beautybliss/package5.html</span>
+                        </div>
+                        <h3 class="file-title">Beauty Bliss Starter Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Beauty Bliss Starter package featuring hair spa, detan, facial, and mani-pedi treatments.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="voucher-pdf/beautybliss/package5.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- voucher-pdf/beautybliss/package6.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">voucher-pdf/beautybliss/package6.html</span>
+                        </div>
+                        <h3 class="file-title">Glow &amp; Groom Annual Privilege Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Glow &amp; Groom Privilege package including essential cleanups and grooming hair-spa options.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="voucher-pdf/beautybliss/package6.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer>
             <p>&copy; 2026 <strong>Dastoor Makeovers</strong>. All rights reserved.</p>
-            <p>Chitrakoot Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp; Gandhi Path West Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp;
-                Jaipur, Rajasthan</p>
+            <p>Chitrakoot Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp; Gandhi Path West Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp; Jaipur, Rajasthan</p>
         </footer>
 
     </div>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+        function filterFolder(folder) {
+            // Update active state on buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes("'" + folder + "'")) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Filter sections with micro-animations
+            const sections = document.querySelectorAll('.folder-section');
+            sections.forEach(sec => {
+                const secFolder = sec.getAttribute('data-folder');
+                if (folder === 'all' || secFolder === folder) {
+                    sec.style.display = 'block';
+                    // Trigger reflow for transition
+                    sec.offsetHeight;
+                    sec.style.opacity = '1';
+                    sec.style.transform = 'translateY(0)';
+                } else {
+                    sec.style.opacity = '0';
+                    sec.style.transform = 'translateY(15px)';
+                    // Hide after animation finishes
+                    setTimeout(() => {
+                        if (sec.style.opacity === '0') {
+                            sec.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+        }
+    </script>
 
 </body>
 

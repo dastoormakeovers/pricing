@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dastoor Makeovers — Package Vouchers Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0E0C0C;
+            --dark: #181414;
+            --card: #201C1C;
+            --rg: #C9965A;
+            --rg-lt: #E8C49A;
+            --rg-dim: rgba(201, 150, 90, 0.12);
+            --rg-line: rgba(201, 150, 90, 0.35);
+            --cream: #F5EDE0;
+            --muted: rgba(245, 237, 224, 0.45);
+            --soft: rgba(245, 237, 224, 0.75);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--cream);
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* ── DECORATIVE CORNER MARKS ── */
+        .corner {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border-color: var(--rg);
+            border-style: solid;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .corner.tl {
+            top: 20px;
+            left: 20px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .corner.tr {
+            top: 20px;
+            right: 20px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .corner.bl {
+            bottom: 20px;
+            left: 20px;
+            border-width: 0 0 1px 1px;
+        }
+
+        .corner.br {
+            bottom: 20px;
+            right: 20px;
+            border-width: 0 1px 1px 0;
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo-container {
+            max-width: 240px;
+            margin: 0 auto 20px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .brand-subtitle {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rg);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--rg-lt);
+            font-weight: 400;
+        }
+
+        .location-info {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .divider {
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rg), transparent);
+            margin: 25px auto;
+        }
+
+        /* ── BACK NAVIGATION ── */
+        .back-nav {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--rg-lt);
+            border: 1px solid var(--rg-line);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-back:hover {
+            background: var(--rg-dim);
+            border-color: var(--rg);
+            color: var(--cream);
+            transform: translateX(-4px);
+        }
+
+        .btn-back svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        /* ── FOLDER HEADER ── */
+        .folder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--rg-line);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+        }
+
+        .folder-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .folder-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--rg);
+        }
+
+        .folder-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .folder-title .path {
+            color: var(--rg-lt);
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .folder-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
+        }
+
+        /* ── GRID SYSTEM ── */
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        /* ── FILE CARD STYLING ── */
+        .file-card {
+            background: linear-gradient(135deg, var(--card) 0%, #151212 100%);
+            border: 1px solid rgba(201, 150, 90, 0.12);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-height: 220px;
+        }
+
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 100%, var(--rg-dim) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .file-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rg);
+            box-shadow: 0 10px 30px rgba(201, 150, 90, 0.1);
+        }
+
+        .file-card:hover::before {
+            opacity: 1;
+        }
+
+        .file-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .file-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .file-ext {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--black);
+            background: var(--rg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+        }
+
+        .file-name {
+            font-family: monospace;
+            font-size: 11px;
+            color: var(--muted);
+            transition: var(--transition);
+        }
+
+        .file-card:hover .file-name {
+            color: var(--rg-lt);
+        }
+
+        .file-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            color: var(--cream);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .file-desc {
+            font-size: 12.5px;
+            color: var(--soft);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .file-actions {
+            margin-top: auto;
+            border-top: 1px solid rgba(245, 237, 224, 0.08);
+            padding-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .file-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--rg-lt);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .file-link .arrow-icon {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .file-card:hover .file-link {
+            color: var(--cream);
+        }
+
+        .file-card:hover .file-link .arrow-icon {
+            transform: translateX(4px);
+            color: var(--rg);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 150, 90, 0.15);
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer strong {
+            color: var(--rg-lt);
+            font-weight: 500;
+        }
+
+        /* ── RESPONSIVE MEDIA QUERIES ── */
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            header {
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .folder-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .folder-meta {
+                align-self: flex-start;
+            }
+
+            .files-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ornamental Corner Accents -->
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <img src="../dastoor-logo.png" alt="Dastoor Makeovers Logo">
+            </div>
+            <div class="brand-subtitle">Premium Women's Salon &amp; Bridal Studio</div>
+            <h1>Pricing &amp; <em>Packages</em> Portal</h1>
+            <div class="location-info">Chitrakoot &amp; Gandhi Path West, Jaipur</div>
+            <div class="divider"></div>
+        </header>
+
+        <!-- Back Navigation -->
+        <div class="back-nav">
+            <a href="../index.html" class="btn-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Back to Main Portal</span>
+            </a>
+        </div>
+
+        <!-- Section: Folder Content -->
+        <div class="folder-section">
+            <div class="folder-header">
+                <div class="folder-title-wrap">
+                    <svg class="folder-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+                    </svg>
+                    <h2 class="folder-title">Package Vouchers Directory <span class="path">/package-vouchers/</span></h2>
+                </div>
+                <p class="folder-meta">6 HTML Files</p>
+            </div>
+
+            <div class="files-grid">
+                                <!-- package1.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package1.html</span>
+                        </div>
+                        <h3 class="file-title">The Royal Glow Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Royal Glow package detailing services, original pricing, and promotional terms.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package1.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- package2.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package2.html</span>
+                        </div>
+                        <h3 class="file-title">Signature Glow & Wellness Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Signature Glow & Wellness package detailing session splits and validity guidelines.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package2.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- package3.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package3.html</span>
+                        </div>
+                        <h3 class="file-title">Diamond Glow Transformation Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Diamond Glow Transformation package detailing exclusive therapies and custom options.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package3.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- package4.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package4.html</span>
+                        </div>
+                        <h3 class="file-title">Royal Radiance Elite Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Royal Radiance Elite package detailing VIP salon therapies and guest credentials.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package4.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- package5.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package5.html</span>
+                        </div>
+                        <h3 class="file-title">Beauty Bliss Starter Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Beauty Bliss Starter package featuring hair spa, detan, facial, and mani-pedi treatments.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package5.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- package6.html -->
+                <div class="file-card">
+                    <div class="file-info">
+                        <div class="file-header-row">
+                            <span class="file-ext">HTML</span>
+                            <span class="file-name">package6.html</span>
+                        </div>
+                        <h3 class="file-title">Glow & Groom Annual Privilege Package</h3>
+                        <p class="file-desc">Printable gift voucher card for the Glow & Groom Privilege package including essential cleanups and grooming hair-spa options.</p>
+                    </div>
+                    <div class="file-actions">
+                        <a href="package6.html" class="file-link">
+                            <span>Open File</span>
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 <strong>Dastoor Makeovers</strong>. All rights reserved.</p>
+            <p>Chitrakoot Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp; Gandhi Path West Branch: +91-XXXX-XXXXXX &nbsp;|&nbsp; Jaipur, Rajasthan</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

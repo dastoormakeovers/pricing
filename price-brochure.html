@@ -75,13 +75,13 @@
         }
 
         .corner.bl {
-            bottom: 10mm;
+            bottom: 6mm;
             left: 10mm;
             border-width: 0 0 1px 1px;
         }
 
         .corner.br {
-            bottom: 10mm;
+            bottom: 6mm;
             right: 10mm;
             border-width: 0 1px 1px 0;
         }
@@ -212,6 +212,7 @@
             margin-top: 36px;
             position: relative;
             z-index: 1;
+            width: 100%;
         }
 
         .branch-tag {
@@ -221,16 +222,20 @@
             color: var(--rg);
             margin-bottom: 10px;
             opacity: 0.8;
+            text-align: center;
         }
 
         .branches {
             display: flex;
             gap: 30px;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            max-width: 450px;
+            margin: 0 auto;
         }
 
         .branch {
+            flex: 1;
             text-align: center;
             font-size: 11.5px;
             color: var(--soft);
@@ -250,6 +255,7 @@
             font-size: 16px;
             align-self: center;
             opacity: 0.5;
+            flex-shrink: 0;
         }
 
         /* ── INNER PAGES ── */
@@ -490,6 +496,22 @@
             padding-top: 6px;
         }
 
+        .pg-footer>span {
+            flex: 1;
+        }
+
+        .pg-footer>span:first-child {
+            text-align: left;
+        }
+
+        .pg-footer>span:nth-child(2) {
+            text-align: center;
+        }
+
+        .pg-footer>span:last-child {
+            text-align: right;
+        }
+
         .pg-footer .brand {
             color: var(--rg);
             font-weight: 400;
@@ -562,16 +584,16 @@
             </div>
 
             <div class="cover-branches">
-                <div class="branch-tag">Our Branches · Jaipur</div>
+                <div class="branch-tag">Our Branches</div>
                 <div class="branches">
                     <div class="branch">
                         <strong>Branch 1</strong>
-                        Chitrakoot, Jaipur
+                        Gandhi Path West, Jaipur
                     </div>
                     <div class="sep-diamond">◆</div>
                     <div class="branch">
                         <strong>Branch 2</strong>
-                        Gandhi Path West, Jaipur
+                        Chitrakoot, Jaipur
                     </div>
                 </div>
             </div>
@@ -851,9 +873,9 @@
                                 class="price-dots"></span><span class="price-val">₹1,499</span></div>
                         <div class="price-row"><span class="price-name">Aroma Facial</span><span
                                 class="price-dots"></span><span class="price-val">₹1,499</span></div>
-                        <div class="price-row"><span class="price-name">O3+ Facial</span><span
+                        <div class="price-row"><span class="price-name">O3+ Facial (5 Steps)</span><span
                                 class="price-dots"></span><span class="price-val">₹1,499</span></div>
-                        <div class="price-row"><span class="price-name">O3+ Bridal Facial (5 Steps)</span><span
+                        <div class="price-row"><span class="price-name">O3+ Bridal Facial (10 Steps)</span><span
                                 class="price-dots"></span><span class="price-val"><span class="rg">₹2,499</span></span>
                         </div>
                         <div class="price-row"><span class="price-name">Hydra Facial</span><span
@@ -922,12 +944,12 @@
         <div class="inner">
             <div class="pg-header">
                 <span class="pg-brand">Dastoor Makeovers</span>
-                <span class="pg-section-name">Mani-Pedi · Lashes</span>
+                <span class="pg-section-name">Nails · Lashes</span>
             </div>
 
             <div class="single-col">
                 <div class="sec-title">Relaxing Sessions</div>
-                <div class="sec-sub">Mani · Pedi · Nail Care</div>
+                <div class="sec-sub">Mani · Pedi · Nail Care · Lashes</div>
                 <div class="sec-rule"></div>
                 <div class="two-col">
 
@@ -953,9 +975,30 @@
                                 class="price-dots"></span><span class="price-val"><span class="rg">₹1,499</span></span>
                         </div>
                     </div>
+                    <div class="cat-block mt16">
+                        <div class="cat-name">Eyelash Extensions</div>
+                        <div class="price-row"><span class="price-name">Lash Lifting</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Lash Removal</span><span
+                                class="price-dots"></span><span class="price-val">₹999</span></div>
+                        <div class="price-row"><span class="price-name">Lash Refill</span><span
+                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
+                        <div class="price-row"><span class="price-name">Classic Lash Extensions</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Hybrid Lash Extension</span><span
+                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
+                        <div class="price-row"><span class="price-name">Volume Lash Extension</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹3,499</span></span>
+                        </div>
+                        <div class="price-row"><span class="price-name">Bridal Lash (Incl. 1 Free Refill)</span><span
+                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
+                        </div>
+                    </div>
 
                     <div class="cat-block mt16">
                         <div class="cat-name">Nail Art &amp; Extensions (Both Hands)</div>
+                        <div class="price-row"><span class="price-name">Nail Art Per Nail (Starting)</span><span
+                                class="price-dots"></span><span class="price-val">₹50</span></div>
                         <div class="price-row"><span class="price-name">Cut &amp; Shape</span><span
                                 class="price-dots"></span><span class="price-val">₹150</span></div>
                         <div class="price-row"><span class="price-name">Gel Paint Removal</span><span
@@ -979,25 +1022,7 @@
                         </div>
                     </div>
 
-                    <div class="cat-block mt16">
-                        <div class="cat-name">Eyelash Extensions</div>
-                        <div class="price-row"><span class="price-name">Lash Lifting</span><span
-                                class="price-dots"></span><span class="price-val">₹999</span></div>
-                        <div class="price-row"><span class="price-name">Lash Removal</span><span
-                                class="price-dots"></span><span class="price-val">₹999</span></div>
-                        <div class="price-row"><span class="price-name">Lash Refill</span><span
-                                class="price-dots"></span><span class="price-val">₹1,499</span></div>
-                        <div class="price-row"><span class="price-name">Classic Lash Extensions</span><span
-                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
-                        <div class="price-row"><span class="price-name">Hybrid Lash Extension</span><span
-                                class="price-dots"></span><span class="price-val">₹2,499</span></div>
-                        <div class="price-row"><span class="price-name">Volume Lash Extension</span><span
-                                class="price-dots"></span><span class="price-val"><span class="rg">₹3,499</span></span>
-                        </div>
-                        <div class="price-row"><span class="price-name">Bridal Lash (Incl. 1 Free Refill)</span><span
-                                class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -1175,16 +1200,6 @@
                                 class="price-dots"></span><span class="price-val"><span class="rg">₹4,999</span></span>
                         </div>
                     </div>
-
-                    <div class="offer-banner mt16">
-                        <div class="offer-icon">★</div>
-                        <div>
-                            <div class="offer-title">Happy Hours</div>
-                            <div class="offer-desc">Every Tuesday &amp; Thursday · 10 AM – 3 PM<br>Enjoy <strong>20–50%
-                                    off</strong> all services during Happy Hours.<br>Not valid on wedding/festive peak
-                                days. Cannot be combined with other offers.</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1236,7 +1251,7 @@
                     </div>
                 </div>
                 <div class="bridal-card">
-                    <div class="occasion">Sangeet · Cocktail</div>
+                    <div class="occasion">Sangeet · <br>Cocktail</div>
                     <div class="bridal-tier">
                         <div class="tier-name">Classic</div>
                         <div class="tier-price">₹7,999</div>
@@ -1251,7 +1266,7 @@
                     </div>
                 </div>
                 <div class="bridal-card">
-                    <div class="occasion">Engagement</div>
+                    <div class="occasion">Engagement<br><br> </div>
                     <div class="bridal-tier">
                         <div class="tier-name">Classic</div>
                         <div class="tier-price">₹9,999</div>
@@ -1352,7 +1367,7 @@
                     <div
                         style="font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--rg); margin-bottom:4px;">
                         Women Only</div>
-                    <div style="font-size:11.5px; color:var(--soft);">Premium Salon &amp; Bridal Studio</div>
+                    <div style="font-size:11.5px; color:var(--soft);">Premium Salon <br>&amp; Bridal Studio</div>
                 </div>
             </div>
         </div>
