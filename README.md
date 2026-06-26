@@ -134,10 +134,9 @@ Welcome to the Dastoor Makeovers Price Brochure list. Below is a comprehensive l
 ### Pedicure
 - Classic Pedicure: ₹700
 - Luxury Pedicure: ₹1,000
-- Ultra Luxury Pedicure: ₹1,500
+- Ultra Luxury Premium Pedicure: ₹2,500
 
 ### Eyelash Extensions
-- Lash Lifting: ₹1,000
 - Lash Removal: ₹1,000
 - Lash Refill: ₹1,500
 - Classic Lash Extensions: ₹2,500
