@@ -217,59 +217,57 @@ Welcome to the Dastoor Makeovers Price Brochure list. Below is a comprehensive l
 ## Bridal Makeup Packages
 *All packages include: Hair Style · Outfit Styling/Draping · Eyelashes · Complimentary Lenses (on request) · Hair Extensions &amp; Accessories*
 
-### Haldi · Mehendi · Mayra (Studio Premise Packages)
+### Studio Premise Packages
+#### Haldi · Mehendi · Mayra · Roka
 - **Classic**: ₹5,000
 - **HD**: ₹8,000
 - **Ultra HD**: ₹10,000
+- **Airbrush / Signature**: ₹15,000
 
-### Sangeet · Cocktail (Studio Premise Packages)
-- **Classic**: ₹10,000
-- **HD**: ₹12,000
-- **Ultra HD**: ₹18,000
-- **Signature**: ₹22,000
-
-### Engagement (Studio Premise Packages)
+#### Sangeet · Cocktail · Engagement
 - **Classic**: ₹12,000
 - **HD**: ₹15,000
 - **Ultra HD**: ₹18,000
-- **Signature**: ₹22,000
+- **Airbrush / Signature**: ₹22,000
 
-### Wedding Day · Reception (Studio Premise Packages)
+#### Wedding Day · Reception
 - **Classic**: ₹15,000
 - **HD**: ₹20,000
 - **Ultra HD**: ₹25,000
 - **Airbrush**: ₹28,000
 - **Signature**: ₹35,000
 
-### Haldi · Mehendi · Mayra (Venue &amp; Home Packages (Jaipur Only))
+---
+
+### Venue &amp; Home Packages (Jaipur Only)
+#### Haldi · Mehendi · Mayra · Roka
 - **Classic**: ₹7,000
 - **HD**: ₹10,000
 - **Ultra HD**: ₹15,000
-- **Airbrush**: ₹18,000
-- **Signature**: ₹18,000
+- **Airbrush / Signature**: ₹18,000
 
-### Sangeet · Cocktail (Venue &amp; Home Packages (Jaipur Only))
-- **Classic**: ₹10,000
-- **HD**: ₹15,000
-- **Ultra HD**: ₹18,000
-- **Airbrush**: ₹20,000
-- **Signature**: ₹25,000
-
-### Engagement (Venue &amp; Home Packages (Jaipur Only))
-- **Classic**: ₹12,000
+#### Sangeet · Cocktail · Engagement
+- **Classic**: ₹15,000
 - **HD**: ₹18,000
-- **Ultra HD**: ₹20,000
-- **Airbrush**: ₹22,000
-- **Signature**: ₹25,000
+- **Ultra HD**: ₹22,000
+- **Airbrush / Signature**: ₹25,000
 
-### Wedding Day · Reception (Venue &amp; Home Packages (Jaipur Only))
+#### Wedding Day · Reception
 - **Classic**: ₹18,000
 - **HD**: ₹22,000
 - **Ultra HD**: ₹25,000
 - **Airbrush**: ₹28,000
 - **Signature**: ₹35,000
 
-**Note**: Travel &amp; Accommodation arrangement or cost will be additional for Venue Packages.
+---
+
+### Additional Notes &amp; Product Specifications
+- **Travel &amp; Accommodation**: Arrangement or cost will be additional for Venue Packages.
+- **Classic Makeup Package**: All makeup products used are drugstore brands.
+- **HD Makeup Package**: All HD drugstore makeup products will be used.
+- **Ultra HD Makeup Package**: All makeup products used are high-end premium brands.
+- **Signature Makeup Package**: All makeup products used are high-end premium brands.
+- **Airbrush Makeup Package**: All makeup products used are high-end premium brands.
 
 ## Additional Services
 *Exquisite add-ons, seasonal offers &amp; special salon sessions*
